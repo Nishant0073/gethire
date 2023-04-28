@@ -50,7 +50,7 @@ class _OptionScreenState extends State<OptionScreen>
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                  height: 60.fh,
+                  height: 40.fh,
                 ),
                 SvgPicture.asset(
                   'assets/svg/4rth illustrator.svg',
@@ -78,16 +78,16 @@ class _OptionScreenState extends State<OptionScreen>
                           style: getFontStyle(
                               color: AppTheme.blackFontColor,
                               textType: TextType.smallText,
-                              fontWeight: FontWeight.w400)),
+                              fontWeight: FontWeight.w600)),
                       SizedBox(
-                        height: 40.fh,
+                        height: 30.fh,
                       ),
                       GestureDetector(
                         onTap: () {
                           showDailogbox(context);
                         },
                         child: Container(
-                            height: 55.fh,
+                            height: 50.fh,
                             width: 300.fw,
                             decoration: BoxDecoration(
                               borderRadius:
@@ -105,16 +105,18 @@ class _OptionScreenState extends State<OptionScreen>
                                 AutoSizeText(
                                   "Sign in with Google",
                                   style: getFontStyle(
-                                      fontSize: 15.fh, color: Colors.black),
+                                      fontSize: 15.fh,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
                                 )
                               ],
                             )),
                       ),
                       SizedBox(
-                        height: 25.fh,
+                        height: 20.fh,
                       ),
                       Container(
-                          height: 55.fh,
+                          height: 50.fh,
                           width: 300.fw,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -131,7 +133,36 @@ class _OptionScreenState extends State<OptionScreen>
                               AutoSizeText(
                                 "Sign in with linkedin",
                                 style: getFontStyle(
-                                    fontSize: 15.fh, color: Colors.black),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15.fh,
+                                    color: Colors.black),
+                              )
+                            ],
+                          )),
+                      SizedBox(
+                        height: 20.fh,
+                      ),
+                      Container(
+                          height: 50.fh,
+                          width: 300.fw,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                "assets/logo/whatsapplogo.png",
+                                height: 45.fh,
+                                width: 45.fw,
+                              ),
+                              AutoSizeText(
+                                "Sign in with Whatsapp",
+                                style: getFontStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15.fh,
+                                    color: Colors.black),
                               )
                             ],
                           )),
@@ -167,7 +198,10 @@ class _OptionScreenState extends State<OptionScreen>
                           color: AppTheme.blackFontColor,
                           textType: TextType.subHeading,
                           fontWeight: FontWeight.w700)),
-                  AutoSizeText("Your  successfully signed in ",
+                  SizedBox(
+                    height: 3.fh,
+                  ),
+                  AutoSizeText("Your successfully signed in ",
                       style: getFontStyle(
                           color: AppTheme.blackFontColor,
                           textType: TextType.text,

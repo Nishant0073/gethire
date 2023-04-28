@@ -75,7 +75,7 @@ class OnboardingScreen2 extends StatelessWidget {
                         style: getFontStyle(
                             color: AppTheme.blackFontColor,
                             textType: TextType.heading,
-                            fontWeight: FontWeight.w700)),
+                            fontWeight: FontWeight.w800)),
                     SizedBox(
                       height: 10.fh,
                     ),

@@ -84,7 +84,7 @@ TextStyle getFontStyle({
       fontFamily = 'Helvetica Neue Light';
       break;
     default:
-      fontFamily = 'Helvetica Neue';
+      fontFamily = 'Montserrat';
   }
   letterSpacing ??= 0.0;
   switch (textType) {
