@@ -1,91 +1,43 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gethire/Screens/CreateProfile/Createprofile1.dart';
-import 'package:gethire/Screens/OptionScreen/OptionScreenWidgets/Optionscreenotp.dart';
-import 'package:gethire/Screens/OptionScreen/OptionScreenWidgets/phoneVerification.dart';
+
 import 'package:gethire/sizeConfig.dart';
 import 'package:gethire/theme.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:lottie/lottie.dart';
 
 class OptionScreen extends StatefulWidget {
   const OptionScreen({super.key});
 
   @override
   State<OptionScreen> createState() => _OptionScreenState();
-
-  void _showBottomSheetPhone(BuildContext context) {
-    showModalBottomSheet(
-        backgroundColor: Colors.transparent,
-        context: context,
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.fw),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 238, 13, 13),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.fh),
-                      topRight: Radius.circular(10.fh))),
-              height: 500.fh,
-              width: 396.fw,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Color.fromRGBO(50, 82, 187, 0.1),
-                      child: Image.asset("assets/icons/Android.png")),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("opt up",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.heading,
-                                fontWeight: FontWeight.w700)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 6.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("Please enter your phone number here",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.text,
-                                fontWeight: FontWeight.w400)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  MyphoneNumber(),
-                ],
-              ),
-            ),
-          );
-        });
-  }
-
-  void OtpScreen(BuildContext context) {}
-
 }
 
-class _OptionScreenState extends State<OptionScreen> {
-  bool isSwitched = true;
-  bool Continue = false;
+class _OptionScreenState extends State<OptionScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      vsync: this,
+    );
+
+    controller.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => CreateProfile1()));
+        controller.reset();
+      }
+    });
+  }
+
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -98,17 +50,12 @@ class _OptionScreenState extends State<OptionScreen> {
               physics: const BouncingScrollPhysics(),
               children: [
                 SizedBox(
-                  height: 90.fh,
+                  height: 40.fh,
                 ),
-                Container(
-                  height: 280.fh,
-                  width: 302.fw,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          fit: BoxFit.contain,
-                          image: AssetImage(
-                            'assets/images/OptonScreenPng1.png',
-                          ))),
+                SvgPicture.asset(
+                  'assets/svg/4rth illustrator.svg',
+                  height: 300.fh,
+                  width: 270.fw,
                 ),
                 SizedBox(
                   height: 30.fh,
@@ -131,324 +78,139 @@ class _OptionScreenState extends State<OptionScreen> {
                           style: getFontStyle(
                               color: AppTheme.blackFontColor,
                               textType: TextType.smallText,
-                              fontWeight: FontWeight.w400)),
+                              fontWeight: FontWeight.w600)),
                       SizedBox(
-                        height: 40.fh,
+                        height: 30.fh,
                       ),
-                      SizedBox(
-                        height: 25.fh,
-                      ),
-                      Ink(
-                        child: InkWell(
-                          child: Container(
-                            height: 44.fh,
-                            width: 354.fw,
+                      GestureDetector(
+                        onTap: () {
+                          showDailogbox(context);
+                        },
+                        child: Container(
+                            height: 50.fh,
+                            width: 300.fw,
                             decoration: BoxDecoration(
-                                color: isSwitched
-                                    ? Color.fromARGB(255, 255, 255, 255)
-                                    : Color(0xFF3252BB),
-                                border: Border.all(color: Color(0xFF3252BB)),
-                                borderRadius: BorderRadius.circular(10.fh)),
-                            child: Center(
-                              child: AutoSizeText("Post job",
-                                  style: getFontStyle(
-                                      color: isSwitched
-                                          ? Color(0xFF3252BB)
-                                          : Color.fromARGB(255, 255, 255, 255),
-                                      textType: TextType.text,
-                                      fontWeight: FontWeight.w700)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
+                              color: Color(0xFFFFFFFF),
                             ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset(
+                                  "assets/logo/googlesignup.png",
+                                  height: 40.fh,
+                                  width: 40.fw,
+                                ),
+                                AutoSizeText(
+                                  "Sign in with Google",
+                                  style: getFontStyle(
+                                      fontSize: 15.fh,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600),
+                                )
+                              ],
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20.fh,
+                      ),
+                      Container(
+                          height: 50.fh,
+                          width: 300.fw,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            color: Color(0xFFFFFFFF),
                           ),
-                          onTap: () {
-                            setState(() {
-                              isSwitched = false;
-
-                              Showbottoombarphone(context);
-                            });
-                          },
-                        ),
-                      )
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                "assets/logo/linkedin.png",
+                                height: 45.fh,
+                                width: 45.fw,
+                              ),
+                              AutoSizeText(
+                                "Sign in with linkedin",
+                                style: getFontStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15.fh,
+                                    color: Colors.black),
+                              )
+                            ],
+                          )),
+                      SizedBox(
+                        height: 20.fh,
+                      ),
+                      Container(
+                          height: 50.fh,
+                          width: 300.fw,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            color: Color(0xFFFFFFFF),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Image.asset(
+                                "assets/logo/whatsapplogo.png",
+                                height: 45.fh,
+                                width: 45.fw,
+                              ),
+                              AutoSizeText(
+                                "Sign in with Whatsapp",
+                                style: getFontStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15.fh,
+                                    color: Colors.black),
+                              )
+                            ],
+                          )),
                     ],
                   ),
-                )
+                ),
               ]),
         ),
       ])),
     );
   }
 
-  Future<dynamic> Showbottoombarphone(BuildContext context) {
-    return showModalBottomSheet(
-        isScrollControlled: true,
-        barrierColor: Color.fromRGBO(50, 82, 187, 0.3),
-        backgroundColor: Colors.transparent,
-        context: context,
-        builder: (context) {
-          return SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: 10.fw,
-                  right: 10.fw,
-                  bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10.fh),
-                        topRight: Radius.circular(10.fh))),
-                height: 400.fh,
-                width: 396.fw,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 20.fh,
-                    ),
-                    CircleAvatar(
-                        radius: 50,
-                        backgroundColor: Color.fromRGBO(50, 82, 187, 0.1),
-                        child: Image.asset("assets/icons/Android.png")),
-                    SizedBox(
-                      height: 20.fh,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                      child: Row(
-                        children: [
-                          AutoSizeText("Sign up",
-                              style: getFontStyle(
-                                  color: AppTheme.blackFontColor,
-                                  textType: TextType.heading,
-                                  fontWeight: FontWeight.w700)),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 6.fh,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                      child: Row(
-                        children: [
-                          AutoSizeText("Please enter your phone number here",
-                              style: getFontStyle(
-                                  color: AppTheme.blackFontColor,
-                                  textType: TextType.smallText,
-                                  fontWeight: FontWeight.w400)),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.fh,
-                    ),
-                    MyphoneNumber(),
-                    SizedBox(
-                      height: 20.fh,
-                    ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.end,
-                    //   children: [
-                    //     GestureDetector(
-                    //       onTap: () {
-                    //         Navigator.push(
-                    //             context,
-                    //             MaterialPageRoute(
-                    //                 builder: (context) => OptionScreenOTP()));
-                    //       },
-                    //       child: Container(
-                    //         height: 42.fh,
-                    //         width: 131.fw,
-                    //         decoration: BoxDecoration(
-                    //             color: Color(0xFF3252BB),
-                    //             borderRadius: BorderRadius.circular(20)),
-                    //         child: Center(
-                    //           child: AutoSizeText("Continue",
-                    //               style: getFontStyle(
-                    //                   color: Color(0xFFFFFFFF),
-                    //                   textType: TextType.text,
-                    //                   fontWeight: FontWeight.w700)),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     SizedBox(
-                    //       width: 10.fw,
-                    //     )
-                    //   ],
-                    // ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
-  }
-
-  //   Scaffold(
-  //       backgroundColor: Colors.white,
-  //       body: Center(
-  //         child: Column(
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: <Widget>[
-
-  //           ],
-  //         ),
-  //       ));
-  // }
-
-  void _showBottomSheetPhone(BuildContext context) {
-    showModalBottomSheet(
-        backgroundColor: Colors.transparent,
-        context: context,
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.fw),
+  void showDailogbox(context) => showDialog(
+      context: context,
+      builder: (context) => Dialog(
             child: Container(
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 238, 13, 13),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.fh),
-                      topRight: Radius.circular(10.fh))),
-              height: 500.fh,
-              width: 396.fw,
+                  borderRadius: BorderRadius.all(Radius.circular(200))),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
                 children: [
+                  Lottie.asset(
+                    'assets/lottie/correct.json',
+                    repeat: false,
+                    controller: controller,
+                    onLoaded: (composition) {
+                      controller.duration = composition.duration;
+                      controller.forward();
+                    },
+                  ),
+                  AutoSizeText("Congratulations",
+                      style: getFontStyle(
+                          color: AppTheme.blackFontColor,
+                          textType: TextType.subHeading,
+                          fontWeight: FontWeight.w700)),
+                  SizedBox(
+                    height: 3.fh,
+                  ),
+                  AutoSizeText("Your successfully signed in ",
+                      style: getFontStyle(
+                          color: AppTheme.blackFontColor,
+                          textType: TextType.text,
+                          fontWeight: FontWeight.w400)),
                   SizedBox(
                     height: 20.fh,
-                  ),
-                  CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Color.fromRGBO(50, 82, 187, 0.1),
-                      child: Image.asset("assets/icons/Android.png")),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("Sign up",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.heading,
-                                fontWeight: FontWeight.w700)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 6.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("Please enter your phone number here",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.text,
-                                fontWeight: FontWeight.w400)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  MyphoneNumber(),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          height: 42.fh,
-                          width: 131.fw,
-                          decoration: BoxDecoration(
-                              color: Color(0xFF3252BB),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Center(
-                            child: AutoSizeText("Continue",
-                                style: getFontStyle(
-                                    color: Color(0xFFFFFFFF),
-                                    textType: TextType.text,
-                                    fontWeight: FontWeight.w700)),
-                          ),
-                        ),
-                      )
-                    ],
                   ),
                 ],
               ),
             ),
-          );
-        });
-  }
-
-  OtpScreen(BuildContext context) {
-    showModalBottomSheet(
-        backgroundColor: Colors.transparent,
-        context: context,
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.fw),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 238, 13, 13),
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.fh),
-                      topRight: Radius.circular(10.fh))),
-              height: 500.fh,
-              width: 396.fw,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  CircleAvatar(
-                      radius: 50,
-                      backgroundColor: Color.fromRGBO(50, 82, 187, 0.1),
-                      child: Image.asset("assets/icons/Android.png")),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("opt up",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.heading,
-                                fontWeight: FontWeight.w700)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 6.fh,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.fw),
-                    child: Row(
-                      children: [
-                        AutoSizeText("Please enter your phone number here",
-                            style: getFontStyle(
-                                color: AppTheme.blackFontColor,
-                                textType: TextType.text,
-                                fontWeight: FontWeight.w400)),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.fh,
-                  ),
-                  MyphoneNumber(),
-                ],
-              ),
-            ),
-          );
-        });
-  }
+          ));
 }

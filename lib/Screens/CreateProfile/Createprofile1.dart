@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/textFieldReceut.dart';
+
 import 'package:gethire/Screens/CreateProfile/Createprofilr2.dart';
 import 'package:gethire/sizeConfig.dart';
 import 'package:gethire/theme.dart';
+
+import 'CreateprofileWidget/textFieldReceut.dart';
 
 class CreateProfile1 extends StatefulWidget {
   const CreateProfile1({super.key});
@@ -13,6 +15,7 @@ class CreateProfile1 extends StatefulWidget {
 }
 
 class _CreateProfile1State extends State<CreateProfile1> {
+  TextEditingController _emailidController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,127 +43,145 @@ class _CreateProfile1State extends State<CreateProfile1> {
                           color: Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 25.fh,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AutoSizeText("Recruiter Details ",
+                      AutoSizeText("Recruiter Profile",
                           style: getFontStyle(
-                              color: AppTheme.blackFontColor,
-                              textType: TextType.heading,
-                              fontWeight: FontWeight.w400)),
-                      AutoSizeText("Skip",
-                          style: getFontStyle(
-                              color: Color(0xFF3252BB),
-                              textType: TextType.text,
-                              fontWeight: FontWeight.w700)),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20.fh,
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ))
                     ],
                   ),
                   SizedBox(
                     height: 25.fh,
                   ),
                   Container(
-                    width: 380.fw,
-                    height: 720.fh,
+                    height: 85.fh,
                     decoration: BoxDecoration(
-                      color: AppTheme.whiteColor,
-                      borderRadius: BorderRadius.circular(10.fh),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.1),
-                          offset: Offset(0, 0),
-                          blurRadius: 8,
-                        ),
-                      ],
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFFE9E9E9),
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(
-                          height: 30.fh,
+                        Stack(
+                          children: [
+                            CircleAvatar(
+                              radius: 30.fh,
+                              backgroundColor: Color(0xFFC4C4C4),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              left: 40.fw,
+                              child: Icon(
+                                Icons.camera_alt_outlined,
+                                size: 20.fh,
+                              ),
+                            )
+                          ],
                         ),
-                        TextFieldRrecrut(
-                          name: " Company Name",
-                          hint: "Enter company name",
-                        ),
-                        SizedBox(
-                          height: 30.fh,
-                        ),
-                        TextFieldRrecrut(
-                          name: " Industry",
-                          hint: "Enter industry",
-                        ),
-                        SizedBox(
-                          height: 30.fh,
-                        ),
-                        TextFieldRrecrut(
-                          name: " Website",
-                          hint: "Enter Your website link",
-                        ),
-                        SizedBox(
-                          height: 30.fh,
-                        ),
-                        TextFieldRrecrut(
-                          name: " GST Number",
-                          hint: "Enter GST number",
-                        ),
-                        SizedBox(
-                          height: 30.fh,
-                        ),
-                        OptionalTextFieldRrecrut(
-                          name: " CIN Number",
-                          hint: "Enter CIN Number",
-                        ),
-                        SizedBox(
-                          height: 30.fh,
-                        ),
-                        BigTextFieldRrecrut(
-                          name: " Company Description",
-                          hint: "Enter company description",
-                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Recruiter Name",
+                                style: getFontStyle(
+                                    color: AppTheme.blackFontColor,
+                                    textType: TextType.smallText,
+                                    fontWeight: FontWeight.w600)),
+                            Container(
+                                width: 235.fw,
+                                height: 40.fh,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFFFFFFFF),
+                                ),
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.only(left: 15),
+                                    border: InputBorder.none,
+                                  ),
+                                ))
+                          ],
+                        )
                       ],
                     ),
                   ),
                   SizedBox(
                     height: 25.fh,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CreateProfile2()));
-                    },
-                    child: Container(
-                      width: 345.fw,
-                      height: 44.fh,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF3252BB),
-                        borderRadius: BorderRadius.circular(10.fh),
-                        boxShadow: [
-                          BoxShadow(
-                            color:
-                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.25),
-                            offset: Offset(0, 4),
-                            blurRadius: 4,
+                  Container(
+                    height: 630.fh,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFFE9E9E9),
+                    ),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          TextFieldRrecrut(
+                            controller: _emailidController,
+                            name: " Email ID",
+                            hint: "",
+                          ),
+                          TextFieldRrecrut(
+                            controller: _emailidController,
+                            name: " Mobile Number",
+                            hint: "",
+                          ),
+                          TextFieldRrecrut(
+                            controller: _emailidController,
+                            name: " Date of Birth",
+                            hint: "",
+                          ),
+                          TextFieldRrecrut(
+                            controller: _emailidController,
+                            name: " Add Social Media Links",
+                            hint: "Linkedin",
+                          ),
+                          NormalDropDown(
+                            name: 'Total Work Experience',
+                            hint: "",
+                          ),
+                          NormalDropDown(
+                            name: 'Roles You Hire For',
+                            hint: "",
+                          ),
+                          TextFieldRrecrut(
+                            controller: _emailidController,
+                            name: "Short Introduction About Yourself",
+                            hint: "",
                           ),
                         ],
-                      ),
-                      child: Center(
-                        child: AutoSizeText("Save & Continue",
-                            style: getFontStyle(
-                                color: AppTheme.whiteColor,
-                                textType: TextType.text,
-                                fontWeight: FontWeight.w700)),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 30.fh,
+                    height: 20.fh,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.fw),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CreateProfile2()));
+                          },
+                          child: AutoSizeText("Next",
+                              style: getFontStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14.fh,
+                                color: Color(0xFF3252BB),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.fh,
                   ),
                 ]),
           ),

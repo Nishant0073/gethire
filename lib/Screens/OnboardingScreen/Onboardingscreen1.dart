@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gethire/Screens/OnboardingScreen/Onboardingscreen2.dart';
 import 'package:gethire/Screens/OnboardingScreen/Onboardingscreen3.dart';
 import 'package:gethire/Screens/OptionScreen/OptionScreen.dart';
@@ -59,15 +60,10 @@ class OnboardingScreen1 extends StatelessWidget {
               SizedBox(
                 height: 50.fh,
               ),
-              Container(
+              SvgPicture.asset(
+                'assets/svg/Group828.svg',
                 height: 314.fh,
                 width: 290.fw,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage(
-                          'assets/images/Onboarding1.png',
-                        ))),
               ),
               SizedBox(
                 height: 50.fh,
@@ -134,31 +130,29 @@ class OnboardingScreen1 extends StatelessWidget {
                         ),
                         Spacer(),
                         GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration: Duration(milliseconds: 500),
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        OnboardingScreen2(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  var begin = Offset(1.0, 0.0);
+                                  var end = Offset.zero;
+                                  var tween = Tween(begin: begin, end: end);
+                                  var offsetAnimation = animation.drive(tween);
 
-                           onTap: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 500),
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  OnboardingScreen2(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            var begin = Offset(1.0, 0.0);
-                            var end = Offset.zero;
-                            var tween = Tween(begin: begin, end: end);
-                            var offsetAnimation = animation.drive(tween);
-
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
                             );
                           },
-                        ),
-                      );
-                    },
-                         
                           child: Container(
                             height: 36.fh,
                             width: 110.fw,

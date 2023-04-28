@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gethire/Screens/OptionScreen/OptionScreen.dart';
 import 'package:gethire/sizeConfig.dart';
 import 'package:gethire/theme.dart';
@@ -42,7 +43,8 @@ class OnboardingScreen3 extends StatelessWidget {
                           },
                         ),
                       );
-                    },                    child: AutoSizeText("Skip",
+                    },
+                    child: AutoSizeText("Skip",
                         style: getFontStyle(
                             color: Color(0xFF3252BB),
                             textType: TextType.text,
@@ -56,17 +58,11 @@ class OnboardingScreen3 extends StatelessWidget {
               SizedBox(
                 height: 50.fh,
               ),
-              Container(
+              SvgPicture.asset(
+                'assets/svg/3rd illustrator.svg',
                 height: 314.fh,
                 width: 290.fw,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage(
-                          'assets/images/BoardingScreen3.png',
-                        ))),
               ),
-           
               SizedBox(
                 height: 50.fh,
               ),

@@ -38,8 +38,13 @@ dependencies:
   auto_size_text: ^3.0.0
   animations: ^2.0.7
   dependencies:
-  intl_phone_number_input: ^0.7.3+1
-  flutter_otp_text_field: ^1.1.1
+  lottie: ^2.3.2
+  flutter_svg: ^2.0.5
+  provider: ^6.0.5
+  supabase: ^1.6.3
+  fluttertoast: ^8.2.1
+
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +73,8 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/logo/
+    - assets/svg/
+    - assets/lottie/
     - 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -81,10 +88,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

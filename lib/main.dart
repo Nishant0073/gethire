@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:gethire/Screens/Authentication/splashScreen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());

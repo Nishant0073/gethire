@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gethire/Screens/OnboardingScreen/Onboardingscreen3.dart';
 import 'package:gethire/Screens/OptionScreen/OptionScreen.dart';
 import 'package:gethire/sizeConfig.dart';
@@ -19,28 +20,27 @@ class OnboardingScreen2 extends StatelessWidget {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 500),
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  OptionScreen(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            var begin = Offset(1.0, 0.0);
-                            var end = Offset.zero;
-                            var tween = Tween(begin: begin, end: end);
-                            var offsetAnimation = animation.drive(tween);
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: Duration(milliseconds: 500),
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          OptionScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        var begin = Offset(1.0, 0.0);
+                        var end = Offset.zero;
+                        var tween = Tween(begin: begin, end: end);
+                        var offsetAnimation = animation.drive(tween);
 
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
-                            );
-                          },
-                        ),
-                      );
-                    },
+                        return SlideTransition(
+                          position: offsetAnimation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -58,15 +58,10 @@ class OnboardingScreen2 extends StatelessWidget {
               SizedBox(
                 height: 50.fh,
               ),
-              Container(
+              SvgPicture.asset(
+                'assets/svg/2nd illustrator.svg',
                 height: 314.fh,
                 width: 290.fw,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage(
-                          'assets/images/BoardingScreen2.png',
-                        ))),
               ),
               SizedBox(
                 height: 50.fh,
@@ -80,7 +75,7 @@ class OnboardingScreen2 extends StatelessWidget {
                         style: getFontStyle(
                             color: AppTheme.blackFontColor,
                             textType: TextType.heading,
-                            fontWeight: FontWeight.w700)),
+                            fontWeight: FontWeight.w800)),
                     SizedBox(
                       height: 10.fh,
                     ),
@@ -133,29 +128,29 @@ class OnboardingScreen2 extends StatelessWidget {
                         ),
                         Spacer(),
                         GestureDetector(
-                        onTap: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 500),
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  OnboardingScreen3(),
-                          transitionsBuilder:
-                              (context, animation, secondaryAnimation, child) {
-                            var begin = Offset(1.0, 0.0);
-                            var end = Offset.zero;
-                            var tween = Tween(begin: begin, end: end);
-                            var offsetAnimation = animation.drive(tween);
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration: Duration(milliseconds: 500),
+                                pageBuilder:
+                                    (context, animation, secondaryAnimation) =>
+                                        OnboardingScreen3(),
+                                transitionsBuilder: (context, animation,
+                                    secondaryAnimation, child) {
+                                  var begin = Offset(1.0, 0.0);
+                                  var end = Offset.zero;
+                                  var tween = Tween(begin: begin, end: end);
+                                  var offsetAnimation = animation.drive(tween);
 
-                            return SlideTransition(
-                              position: offsetAnimation,
-                              child: child,
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
                             );
                           },
-                        ),
-                      );
-                    },
                           child: Container(
                             height: 36.fh,
                             width: 110.fw,
