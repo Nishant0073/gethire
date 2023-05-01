@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/textFieldReceut.dart';
-import 'package:gethire/Screens/CreateProfile/InviteTeam.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/text_field_receut.dart';
+import 'package:gethire/Screens/CreateProfile/Invite_team.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class CreateProfile2 extends StatefulWidget {
@@ -15,7 +15,7 @@ class CreateProfile2 extends StatefulWidget {
 }
 
 class _CreateProfile2State extends State<CreateProfile2> {
-  TextEditingController _emailidController = TextEditingController();
+  final TextEditingController _emailidController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,14 @@ class _CreateProfile2State extends State<CreateProfile2> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText("Company Profile",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ))
                     ],
                   ),
@@ -59,7 +59,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                     height: 85.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,7 +68,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                           children: [
                             CircleAvatar(
                               radius: 30.fh,
-                              backgroundColor: Color(0xFFC4C4C4),
+                              backgroundColor: const Color(0xFFC4C4C4),
                             ),
                             Positioned(
                               bottom: 0,
@@ -94,10 +94,10 @@ class _CreateProfile2State extends State<CreateProfile2> {
                                 height: 40.fh,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFFFFFFFF),
+                                  color: const Color(0xFFFFFFFF),
                                 ),
                                 child: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     contentPadding: EdgeInsets.only(left: 15),
                                     border: InputBorder.none,
                                   ),
@@ -114,7 +114,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                     height: 900.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Center(
                       child: Column(
@@ -144,7 +144,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                             name: " Website",
                             hint: "",
                           ),
-                          NormalDropDown(
+                          const NormalDropDown(
                             // controller: _emailidController,
                             name: "Type of Company",
                             hint: "",
@@ -164,7 +164,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                             name: ' About',
                             hint: "",
                           ),
-                          NormalDropDown(
+                          const NormalDropDown(
                             name: 'Number of employees',
                             hint: "",
                           ),
@@ -182,23 +182,22 @@ class _CreateProfile2State extends State<CreateProfile2> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Timer.periodic(Duration(seconds: 1), (timer) {
+                            Timer.periodic(const Duration(seconds: 1), (timer) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => CreateProfile3()));
+                                      builder: (context) =>
+                                          const CreateProfile3()));
                               timer.cancel();
                             });
                             showDailogbox(context);
                           },
-                          child: Container(
-                            child: AutoSizeText("Next",
-                                style: getFontStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14.fh,
-                                  color: Color(0xFF3252BB),
-                                )),
-                          ),
+                          child: AutoSizeText("Next",
+                              style: getFontStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14.fh,
+                                color: const Color(0xFF3252BB),
+                              )),
                         ),
                       ],
                     ),
@@ -221,12 +220,12 @@ class _CreateProfile2State extends State<CreateProfile2> {
             child: Container(
               height: 204.fh,
               width: 348.fw,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(200))),
               child: Container(
                 height: 204.fh,
                 width: 348.fw,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(200))),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -234,7 +233,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                   children: [
                     CircleAvatar(
                       radius: 30.fh,
-                      backgroundColor: Color(0xFF3252BB),
+                      backgroundColor: const Color(0xFF3252BB),
                       child: Icon(
                         Icons.check,
                         size: 30.fh,

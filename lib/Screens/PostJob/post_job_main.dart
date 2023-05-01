@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/homeScreen/homeScreem.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/homeScreen/home_screem.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
-import 'package:gethire/widgets/DeopdownButton.dart';
-import 'package:gethire/widgets/textField.dart';
+import 'package:gethire/widgets/dropdown_button.dart';
+import 'package:gethire/widgets/text_field.dart';
 
 class PostJobMian extends StatefulWidget {
   const PostJobMian({super.key});
@@ -41,14 +41,14 @@ class _PostJobMianState extends State<PostJobMian> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText(" Post Job",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           )),
                     ],
                   ),
@@ -59,12 +59,12 @@ class _PostJobMianState extends State<PostJobMian> {
                     height: 700.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Center(
                       child: Column(
                         children: [
-                          DeopdownButton(
+                          const DeopdownButton(
                             name: "Job Title",
                             hint: "",
                           ),
@@ -72,7 +72,7 @@ class _PostJobMianState extends State<PostJobMian> {
                             padding: EdgeInsets.symmetric(horizontal: 20.fw),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 DeopdownButton2(
                                   name: "Employment Type",
                                   hint: "",
@@ -88,7 +88,7 @@ class _PostJobMianState extends State<PostJobMian> {
                             padding: EdgeInsets.symmetric(horizontal: 20.fw),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 DeopdownButton2(
                                   name: "Experience Required",
                                   hint: "",
@@ -104,7 +104,7 @@ class _PostJobMianState extends State<PostJobMian> {
                             padding: EdgeInsets.symmetric(horizontal: 20.fw),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
+                              children: const [
                                 DeopdownButton2(
                                   name: "Salary Offered",
                                   hint: "",
@@ -121,15 +121,15 @@ class _PostJobMianState extends State<PostJobMian> {
                             name: " Write Job Decription",
                             hint: "",
                           ),
-                          DeopdownButton(
+                          const DeopdownButton(
                             name: "Tag Required Skills",
                             hint: "",
                           ),
-                          DeopdownButton(
+                          const DeopdownButton(
                             name: "Other Benefits",
                             hint: "",
                           ),
-                          DeopdownButton(
+                          const DeopdownButton(
                             name: "Expected Joining ",
                             hint: "",
                           ),
@@ -156,7 +156,7 @@ class _PostJobMianState extends State<PostJobMian> {
                               style: getFontStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14.5.fh,
-                                color: Color(0xFF3252BB),
+                                color: const Color(0xFF3252BB),
                               )),
                         ),
                         GestureDetector(
@@ -170,16 +170,17 @@ class _PostJobMianState extends State<PostJobMian> {
                               style: getFontStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14.fh,
-                                color: Color(0xFF3252BB),
+                                color: const Color(0xFF3252BB),
                               )),
                         ),
                         GestureDetector(
                           onTap: () {
-                            Timer.periodic(Duration(seconds: 1), (timer) {
+                            Timer.periodic(const Duration(seconds: 1), (timer) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => HomeScreen()));
+                                      builder: (context) =>
+                                          const HomeScreen()));
                               timer.cancel();
                             });
                             showDailogbox(context);
@@ -188,7 +189,7 @@ class _PostJobMianState extends State<PostJobMian> {
                               style: getFontStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14.fh,
-                                color: Color(0xFF3252BB),
+                                color: const Color(0xFF3252BB),
                               )),
                         ),
                       ],
@@ -213,12 +214,12 @@ void showDailogbox(context) => showDialog(
           child: Container(
             height: 230.fh,
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(200))),
             child: Container(
               height: 230.fh,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(200))),
               child: Padding(
                 padding:
@@ -229,7 +230,7 @@ void showDailogbox(context) => showDialog(
                   children: [
                     CircleAvatar(
                       radius: 30.fh,
-                      backgroundColor: Color(0xFF3252BB),
+                      backgroundColor: const Color(0xFF3252BB),
                       child: Icon(
                         Icons.check,
                         size: 30.fh,
@@ -260,7 +261,7 @@ void showDailogbox(context) => showDialog(
                         "We will get back to you within working 4-5 hours",
                         textAlign: TextAlign.center,
                         style: getFontStyle(
-                            color: Color(0xFFB1B1B1),
+                            color: const Color(0xFFB1B1B1),
                             fontSize: 10.fh,
                             fontWeight: FontWeight.w600)),
                   ],
@@ -302,10 +303,10 @@ class _DeopdownButton2State extends State<DeopdownButton2> {
               width: 135.fw,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFFFFFFF),
+                color: const Color(0xFFFFFFFF),
               ),
               child: DropdownButton<String>(
-                underline: SizedBox(),
+                underline: const SizedBox(),
                 style: TextStyle(
                     color: AppTheme.blackFontColor,
                     fontSize: 15.fw,

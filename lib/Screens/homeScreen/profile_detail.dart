@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class ProfileDetail extends StatefulWidget {
@@ -35,14 +35,14 @@ class _ProfileDetailState extends State<ProfileDetail> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText("Candidate Profile",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ))
                     ],
                   ),
@@ -57,7 +57,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                           CircleAvatar(
                             radius: 50.fh,
                             backgroundImage:
-                                AssetImage("assets/images/sample.png"),
+                                const AssetImage("assets/images/sample.png"),
                           ),
                         ],
                       ),
@@ -151,7 +151,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.fw),
                           border: Border.all(
-                            color: Color(0xFFB1B1B1),
+                            color: const Color(0xFFB1B1B1),
                           ),
                           color: Colors.transparent,
                         ),
@@ -165,11 +165,11 @@ class _ProfileDetailState extends State<ProfileDetail> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10.fw),
                                     border: Border.all(
-                                      color: Color(0xFFB1B1B1),
+                                      color: const Color(0xFFB1B1B1),
                                     ),
-                                    color: Color.fromARGB(255, 0, 0, 0)),
+                                    color: const Color.fromARGB(255, 0, 0, 0)),
                               ),
-                              Container(
+                              SizedBox(
                                 width: 200.fw,
                                 child: AutoSizeText(
                                     "Watch video of candidate for your better reach!!",
@@ -188,35 +188,35 @@ class _ProfileDetailState extends State<ProfileDetail> {
                   SizedBox(
                     height: 15.fh,
                   ),
-                  ProfileWidgwet(
+                  const ProfileWidgwet(
                       head: "Education Details:",
                       dis:
                           "While I am working on a UX design, I always try to put myself in place of the users so I can understand how they will interact with the application and what features they will consider to be beneficial. However, I recognize I have a single perspective."),
                   SizedBox(
                     height: 15.fh,
                   ),
-                  ProfileWidgwet(
+                  const ProfileWidgwet(
                       head: "Other Details:",
                       dis:
                           "While I am working on a UX design, I always try to put myself in place of the users so I can understand how they will interact with the application and what features they will consider to be beneficial. However, I recognize I have a single perspective."),
                   SizedBox(
                     height: 15.fh,
                   ),
-                  ProfileWidgwet(
+                  const ProfileWidgwet(
                       head: "Work Experience:",
                       dis:
                           "While I am working on a UX design, I always try to put myself in place of the users so I can understand how they will interact with the application and what features they will consider to be beneficial. However, I recognize I have a single perspective."),
                   SizedBox(
                     height: 15.fh,
                   ),
-                  ProfileWidgwet(
+                  const ProfileWidgwet(
                       head: "Skills:",
                       dis:
                           "While I am working on a UX design, I always try to put myself in place of the users so I can understand how they will interact with the application and what features they will consider to be beneficial. However, I recognize I have a single perspective."),
                   SizedBox(
                     height: 15.fh,
                   ),
-                  ProfileWidgwet(
+                  const ProfileWidgwet(
                       head: "Expectations Details:",
                       dis:
                           "While I am working on a UX design, I always try to put myself in place of the users so I can understand how they will interact with the application and what features they will consider to be beneficial. However, I recognize I have a single perspective."),
@@ -250,7 +250,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                           style: getFontStyle(
                             fontWeight: FontWeight.w400,
                             fontSize: 8.fh,
-                            color: Color(0xFFB1B1B1),
+                            color: const Color(0xFFB1B1B1),
                           )),
                       SizedBox(
                         height: 5.fh,
@@ -260,7 +260,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.fw),
                           border: Border.all(
-                            color: Color(0xFFB1B1B1),
+                            color: const Color(0xFFB1B1B1),
                           ),
                           color: Colors.transparent,
                         ),
@@ -287,7 +287,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10.fw),
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(15)),
                               color: Color(0xFF3252BB)),
@@ -319,7 +319,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.fw),
           border: Border.all(
-            color: Color(0xFFB1B1B1),
+            color: const Color(0xFFB1B1B1),
           ),
           color: Colors.transparent,
         ),
@@ -327,7 +327,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.download_rounded,
               color: AppTheme.blackFontColor,
             ),
@@ -351,7 +351,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.fw),
           border: Border.all(
-            color: Color(0xFFB1B1B1),
+            color: const Color(0xFFB1B1B1),
           ),
           color: Colors.transparent,
         ),
@@ -359,7 +359,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
             child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.share_rounded,
               color: AppTheme.blackFontColor,
             ),
@@ -406,7 +406,7 @@ class ProfileWidgwet extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.fw),
             border: Border.all(
-              color: Color(0xFFB1B1B1),
+              color: const Color(0xFFB1B1B1),
             ),
             color: Colors.transparent,
           ),

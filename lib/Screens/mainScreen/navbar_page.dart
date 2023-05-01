@@ -1,17 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:gethire/Screens/homeScreen/homeScreem.dart';
+import 'package:gethire/Screens/homeScreen/home_screem.dart';
 import 'package:gethire/Screens/mainScreen/widgets/nav_icon.dart';
 import 'package:gethire/Screens/message/messagemain.dart';
-import 'package:gethire/sizeConfig.dart';
-import 'package:gethire/theme.dart';
-
-import '../../constants.dart';
+import 'package:gethire/size_config.dart';
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({super.key, required this.indexPage});
+  const NavBarPage({super.key, required this.indexPage});
   final int indexPage;
   @override
   _NavBarPageState createState() => _NavBarPageState();
@@ -20,8 +18,8 @@ class NavBarPage extends StatefulWidget {
 class _NavBarPageState extends State<NavBarPage> {
   int currentIndex = 0;
   final List _pages = [
-    HomeScreen(),
-    MessageMain(),
+    const HomeScreen(),
+    const MessageMain(),
     // NotificationScreen(),
     // MainProfileScreen(),
   ];
@@ -41,7 +39,7 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     DateTime timeBackPressed = DateTime.now();
     return Scaffold(
-      backgroundColor: Color(0xffF7F7F7),
+      backgroundColor: const Color(0xffF7F7F7),
       body: WillPopScope(
         onWillPop: () async {
           final differeance = DateTime.now().difference(timeBackPressed);
@@ -72,7 +70,7 @@ class _NavBarPageState extends State<NavBarPage> {
         height: 80.fh,
         padding: EdgeInsets.symmetric(horizontal: 10.fw),
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           borderRadius: const BorderRadius.only(
             topRight: Radius.circular(30),
             topLeft: Radius.circular(30),
@@ -96,7 +94,7 @@ class _NavBarPageState extends State<NavBarPage> {
                     Radius.circular(30),
                   ),
                   border: Border.all(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: const Color.fromARGB(255, 0, 0, 0),
                     width: 1,
                   )),
               child: ClipRRect(
@@ -106,15 +104,16 @@ class _NavBarPageState extends State<NavBarPage> {
                 child: BottomNavigationBar(
                     elevation: 0,
                     type: BottomNavigationBarType.fixed,
-                    backgroundColor: Color(0xFF3252BB),
+                    backgroundColor: const Color(0xFF3252BB),
                     onTap: onTap,
                     currentIndex: currentIndex,
-                    selectedItemColor: Color.fromARGB(255, 255, 255, 255),
-                    unselectedItemColor: Color.fromARGB(255, 255, 255, 255),
+                    selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
+                    unselectedItemColor:
+                        const Color.fromARGB(255, 255, 255, 255),
                     showSelectedLabels: false,
                     showUnselectedLabels: false,
                     items: [
-                      BottomNavigationBarItem(
+                      const BottomNavigationBarItem(
                         label: "",
                         icon: NavIcon(
                           path: 'assets/icons/homeicon.svg',
@@ -124,7 +123,7 @@ class _NavBarPageState extends State<NavBarPage> {
                           active: true,
                         ),
                       ),
-                      BottomNavigationBarItem(
+                      const BottomNavigationBarItem(
                         label: "",
                         icon: NavIcon(
                           path: 'assets/icons/message.svg',
@@ -134,7 +133,7 @@ class _NavBarPageState extends State<NavBarPage> {
                           active: true,
                         ),
                       ),
-                      BottomNavigationBarItem(
+                      const BottomNavigationBarItem(
                         label: "",
                         icon: NavIcon(
                           path: 'assets/icons/noti.svg',
@@ -144,7 +143,7 @@ class _NavBarPageState extends State<NavBarPage> {
                           active: true,
                         ),
                       ),
-                      BottomNavigationBarItem(
+                      const BottomNavigationBarItem(
                         label: "",
                         icon: NavIcon(
                           path: 'assets/icons/profile.svg',

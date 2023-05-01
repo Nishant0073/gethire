@@ -1,10 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gethire/Screens/OnboardingScreen/Onboardingscreen3.dart';
-import 'package:gethire/Screens/OptionScreen/OptionScreen.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/OnboardingScreen/on_boarding_screen3.dart';
+import 'package:gethire/Screens/OptionScreen/option_screen.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class OnboardingScreen2 extends StatelessWidget {
@@ -23,12 +22,12 @@ class OnboardingScreen2 extends StatelessWidget {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 500),
+                      transitionDuration: const Duration(milliseconds: 500),
                       pageBuilder: (context, animation, secondaryAnimation) =>
-                          OptionScreen(),
+                          const OptionScreen(),
                       transitionsBuilder:
                           (context, animation, secondaryAnimation, child) {
-                        var begin = Offset(1.0, 0.0);
+                        var begin = const Offset(1.0, 0.0);
                         var end = Offset.zero;
                         var tween = Tween(begin: begin, end: end);
                         var offsetAnimation = animation.drive(tween);
@@ -46,7 +45,7 @@ class OnboardingScreen2 extends StatelessWidget {
                   children: [
                     AutoSizeText("Skip",
                         style: getFontStyle(
-                            color: Color(0xFF3252BB),
+                            color: const Color(0xFF3252BB),
                             textType: TextType.text,
                             fontWeight: FontWeight.w700)),
                     SizedBox(
@@ -98,7 +97,7 @@ class OnboardingScreen2 extends StatelessWidget {
                         Container(
                           height: 12.fh,
                           width: 12.fw,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xFFB1B1B1),
                             shape: BoxShape.circle,
                           ),
@@ -109,7 +108,7 @@ class OnboardingScreen2 extends StatelessWidget {
                         Container(
                           height: 12.fh,
                           width: 28.fw,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xFF3252BB),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(200)),
@@ -121,24 +120,25 @@ class OnboardingScreen2 extends StatelessWidget {
                         Container(
                           height: 12.fh,
                           width: 12.fw,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color(0xFFB1B1B1),
                             shape: BoxShape.circle,
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
                               PageRouteBuilder(
-                                transitionDuration: Duration(milliseconds: 500),
+                                transitionDuration:
+                                    const Duration(milliseconds: 500),
                                 pageBuilder:
                                     (context, animation, secondaryAnimation) =>
-                                        OnboardingScreen3(),
+                                        const OnboardingScreen3(),
                                 transitionsBuilder: (context, animation,
                                     secondaryAnimation, child) {
-                                  var begin = Offset(1.0, 0.0);
+                                  var begin = const Offset(1.0, 0.0);
                                   var end = Offset.zero;
                                   var tween = Tween(begin: begin, end: end);
                                   var offsetAnimation = animation.drive(tween);
@@ -154,7 +154,7 @@ class OnboardingScreen2 extends StatelessWidget {
                           child: Container(
                             height: 36.fh,
                             width: 110.fw,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                               color: Color(0xFF3252BB),

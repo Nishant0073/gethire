@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:gethire/Screens/OnboardingScreen/Onboardingscreen1.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/OnboardingScreen/on_boarding_screen1.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,16 +12,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
   initState() {
     super.initState();
     _navigatetohome();
   }
 
   _navigatetohome() async {
-    await Future.delayed(Duration(milliseconds: 2000), () {});
+    await Future.delayed(const Duration(milliseconds: 2000), () {});
 
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => OnboardingScreen1()));
+    if (context.mounted) {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => const OnboardingScreen1()));
+    }
   }
 
   @override
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SizeConfig().init(context);
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
@@ -52,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Container(
                   height: 100.fh,
                   width: 280.fh,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.contain,
                           image: AssetImage(

@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/homeScreen/CandidateVideo.dart';
-import 'package:gethire/Screens/homeScreen/ProfileDetail.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/homeScreen/candidate_video.dart';
+import 'package:gethire/Screens/homeScreen/profile_detail.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class CandidatesCard extends StatelessWidget {
@@ -30,7 +30,7 @@ class CandidatesCard extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.3),
                 spreadRadius: 0.5,
                 blurRadius: 7,
-                offset: Offset(0, 7), // changes position of shadow
+                offset: const Offset(0, 7), // changes position of shadow
               ),
             ]),
         child: Column(children: [
@@ -40,7 +40,7 @@ class CandidatesCard extends StatelessWidget {
           CircleAvatar(
             backgroundColor: Colors.transparent,
             radius: 45.fh,
-            backgroundImage: AssetImage("assets/images/sample.png"),
+            backgroundImage: const AssetImage("assets/images/sample.png"),
           ),
           AutoSizeText("Profile ID:121212",
               style: getFontStyle(
@@ -80,8 +80,10 @@ class CandidatesCard extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfileDetail()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileDetail()));
             },
             child: Container(
               height: 26.fh,
@@ -104,8 +106,10 @@ class CandidatesCard extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CandidateVideo()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CandidateVideo()));
             },
             child: Container(
               height: 26.fh,
@@ -113,7 +117,7 @@ class CandidatesCard extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border.all(color: AppTheme.primaryColor, width: 1),
                   borderRadius: BorderRadius.circular(10),
-                  color: Color.fromARGB(255, 255, 255, 255)),
+                  color: const Color.fromARGB(255, 255, 255, 255)),
               child: Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

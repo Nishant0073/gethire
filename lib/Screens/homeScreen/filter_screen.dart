@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/textFieldReceut.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 
 import '../../theme.dart';
 
@@ -36,21 +35,21 @@ class _FilterScreenState extends State<FilterScreen> {
                       child: Icon(
                         Icons.arrow_back_ios,
                         size: 25.fh,
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
                     AutoSizeText("Set Filters",
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 20.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ))
                   ],
                 ),
                 SizedBox(
                   height: 25.fh,
                 ),
-                Container(
+                SizedBox(
                   height: 120.fh,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,19 +58,19 @@ class _FilterScreenState extends State<FilterScreen> {
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           )),
                       SizedBox(
                         height: 10.fh,
                       ),
-                      Container(height: 90.fh, child: SelectJobType()),
+                      SizedBox(height: 90.fh, child: SelectJobType()),
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 10.fh,
                 ),
-                Container(
+                SizedBox(
                   height: 70.fh,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,40 +79,40 @@ class _FilterScreenState extends State<FilterScreen> {
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 14.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           )),
                       SizedBox(
                         height: 10.fh,
                       ),
-                      Container(height: 40.fh, child: ModeofWork()),
+                      SizedBox(height: 40.fh, child: const ModeofWork()),
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 10.fh,
                 ),
-                NormalDropDownD(
+                const NormalDropDownD(
                   name: "Select  City",
                   hint: '',
                 ),
                 SizedBox(
                   height: 10.fh,
                 ),
-                NormalDropDownD(
+                const NormalDropDownD(
                   name: "Expected salary",
                   hint: '',
                 ),
                 SizedBox(
                   height: 10.fh,
                 ),
-                NormalDropDownS(
+                const NormalDropDownS(
                   name: "Total Work Experience",
                   hint: '',
                 ),
                 SizedBox(
                   height: 10.fh,
                 ),
-                NormalDropDownD(
+                const NormalDropDownD(
                   name: "Top Skills",
                   hint: '',
                 ),
@@ -127,13 +126,13 @@ class _FilterScreenState extends State<FilterScreen> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 16.fh,
-                          color: Color(0xFF3252BB),
+                          color: const Color(0xFF3252BB),
                         )),
                     Container(
                       width: 140.fw,
                       height: 40.fh,
                       decoration: BoxDecoration(
-                        color: Color(0xFF3252BB),
+                        color: const Color(0xFF3252BB),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Center(
@@ -154,13 +153,15 @@ class _FilterScreenState extends State<FilterScreen> {
 }
 
 class ModeofWork extends StatefulWidget {
+  const ModeofWork({super.key});
+
   @override
   _ModeofWorkState createState() => _ModeofWorkState();
 }
 
 class _ModeofWorkState extends State<ModeofWork> {
-  List<bool> _isSelected = List.generate(3, (index) => false);
-  List<String> _containerNames = [
+  final List<bool> _isSelected = List.generate(3, (index) => false);
+  final List<String> _containerNames = [
     "Onsite",
     "Remote",
     "Hybrid",
@@ -181,7 +182,8 @@ class _ModeofWorkState extends State<ModeofWork> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[0] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[0] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -191,7 +193,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -200,7 +202,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -213,7 +215,8 @@ class _ModeofWorkState extends State<ModeofWork> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[1] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[1] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -223,7 +226,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -232,7 +235,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -245,7 +248,8 @@ class _ModeofWorkState extends State<ModeofWork> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[2] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[2] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -255,7 +259,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -264,7 +268,7 @@ class _ModeofWorkState extends State<ModeofWork> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -281,8 +285,8 @@ class SelectJobType extends StatefulWidget {
 }
 
 class _SelectJobTypeState extends State<SelectJobType> {
-  List<bool> _isSelected = List.generate(5, (index) => false);
-  List<String> _containerNames = [
+  final List<bool> _isSelected = List.generate(5, (index) => false);
+  final List<String> _containerNames = [
     "Full-time",
     "Part-time",
     "Internship",
@@ -305,7 +309,8 @@ class _SelectJobTypeState extends State<SelectJobType> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[1] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[1] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -315,7 +320,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -324,7 +329,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -337,7 +342,8 @@ class _SelectJobTypeState extends State<SelectJobType> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[2] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[2] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -347,7 +353,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -356,7 +362,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -369,7 +375,8 @@ class _SelectJobTypeState extends State<SelectJobType> {
             },
             child: Container(
                 decoration: BoxDecoration(
-                  color: _isSelected[3] ? Color(0xFF3252BB) : Colors.white,
+                  color:
+                      _isSelected[3] ? const Color(0xFF3252BB) : Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 height: 29.fh,
@@ -379,7 +386,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                      color: Color.fromARGB(147, 146, 146, 146),
+                      color: const Color.fromARGB(147, 146, 146, 146),
                       width: 1,
                     ),
                   ),
@@ -388,7 +395,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 10.fh,
-                          color: Color.fromARGB(255, 189, 188, 188),
+                          color: const Color.fromARGB(255, 189, 188, 188),
                         )),
                   ),
                 )),
@@ -408,7 +415,8 @@ class _SelectJobTypeState extends State<SelectJobType> {
               },
               child: Container(
                   decoration: BoxDecoration(
-                    color: _isSelected[4] ? Color(0xFF3252BB) : Colors.white,
+                    color:
+                        _isSelected[4] ? const Color(0xFF3252BB) : Colors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 29.fh,
@@ -418,7 +426,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Color.fromARGB(147, 146, 146, 146),
+                        color: const Color.fromARGB(147, 146, 146, 146),
                         width: 1,
                       ),
                     ),
@@ -427,7 +435,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 10.fh,
-                            color: Color.fromARGB(255, 189, 188, 188),
+                            color: const Color.fromARGB(255, 189, 188, 188),
                           )),
                     ),
                   )),
@@ -440,7 +448,8 @@ class _SelectJobTypeState extends State<SelectJobType> {
               },
               child: Container(
                   decoration: BoxDecoration(
-                    color: _isSelected[0] ? Color(0xFF3252BB) : Colors.white,
+                    color:
+                        _isSelected[0] ? const Color(0xFF3252BB) : Colors.white,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 29.fh,
@@ -450,7 +459,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
-                        color: Color.fromARGB(147, 146, 146, 146),
+                        color: const Color.fromARGB(147, 146, 146, 146),
                         width: 1,
                       ),
                     ),
@@ -459,7 +468,7 @@ class _SelectJobTypeState extends State<SelectJobType> {
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 10.fh,
-                            color: Color.fromARGB(255, 189, 188, 188),
+                            color: const Color.fromARGB(255, 189, 188, 188),
                           )),
                     ),
                   )),
@@ -504,10 +513,10 @@ class _NormalDropDownDState extends State<NormalDropDownD> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFFFFFFF),
+                color: const Color(0xFFFFFFFF),
               ),
               child: DropdownButton<String>(
-                underline: SizedBox(),
+                underline: const SizedBox(),
                 style: TextStyle(
                     color: AppTheme.blackFontColor,
                     fontSize: 15.fw,
@@ -590,10 +599,10 @@ class _NormalDropDownSState extends State<NormalDropDownS> {
                     width: 170.fw,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                     ),
                     child: DropdownButton<String>(
-                      underline: SizedBox(),
+                      underline: const SizedBox(),
                       style: TextStyle(
                           color: AppTheme.blackFontColor,
                           fontSize: 15.fw,

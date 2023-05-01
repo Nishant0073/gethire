@@ -1,8 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
-
-
+import 'package:gethire/size_config.dart';
 
 class Constants {
   //UI Constants
@@ -19,5 +16,4 @@ class Constants {
   static const int retryCount = 3;
   static const int retryDuration = 3000; // Interval between each retry
   static const int httpConnectTimeout = 5000;
-
 }

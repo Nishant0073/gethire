@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/homeScreen/FilterScreen.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class CandidateVideo extends StatefulWidget {
@@ -35,14 +34,14 @@ class _CandidateVideoState extends State<CandidateVideo> {
                       child: Icon(
                         Icons.arrow_back_ios,
                         size: 25.fh,
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                       ),
                     ),
                     AutoSizeText("Candidate Video",
                         style: getFontStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 20.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ))
                   ],
                 ),
@@ -57,13 +56,13 @@ class _CandidateVideoState extends State<CandidateVideo> {
                       width: 300.fw,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                       ),
                       child: Center(
                         child: Icon(
                           Icons.play_arrow,
                           size: 100.fh,
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: const Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
                     ),
@@ -75,23 +74,23 @@ class _CandidateVideoState extends State<CandidateVideo> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Iconss(
+                    const Iconss(
                       image: "assets/icons/like.png",
                       text: "Like",
                     ),
-                    Iconss(
+                    const Iconss(
                       image: "assets/icons/view.png",
                       text: "View",
                     ),
-                    Iconss(
+                    const Iconss(
                       image: "assets/icons/chat.png",
                       text: "Chat",
                     ),
-                    Iconss(
+                    const Iconss(
                       image: "assets/icons/DOWNLOAD.png",
                       text: "CV",
                     ),
-                    Iconss(
+                    const Iconss(
                       image: "assets/icons/send.png",
                       text: "Send",
                     ),
@@ -127,7 +126,7 @@ class Iconss extends StatelessWidget {
             style: getFontStyle(
               fontWeight: FontWeight.w600,
               fontSize: 8.fh,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: const Color.fromARGB(255, 0, 0, 0),
             ))
       ],
     );

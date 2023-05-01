@@ -1,8 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/textFieldReceut.dart';
-import 'package:gethire/Screens/mainScreen/navbarPage.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/mainScreen/navbar_page.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class CreateProfile3 extends StatefulWidget {
@@ -37,14 +36,14 @@ class _CreateProfile3State extends State<CreateProfile3> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText("Invite Tream",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ))
                     ],
                   ),
@@ -57,7 +56,7 @@ class _CreateProfile3State extends State<CreateProfile3> {
                       height: 85.fh,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(10),
@@ -68,14 +67,14 @@ class _CreateProfile3State extends State<CreateProfile3> {
                         children: [
                           CircleAvatar(
                             radius: 22.fh,
-                            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                            backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                             child: CircleAvatar(
-                              backgroundImage: AssetImage(
+                              backgroundImage: const AssetImage(
                                 "assets/images/OptonScreenPng1.png",
                               ),
                               radius: 20.fh,
                               backgroundColor:
-                                  Color.fromARGB(255, 255, 255, 255),
+                                  const Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
                           Column(
@@ -86,25 +85,25 @@ class _CreateProfile3State extends State<CreateProfile3> {
                                   style: getFontStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 9.fh,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                   )),
                               AutoSizeText('Mail: yash00145@gmail.com',
                                   style: getFontStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 9.fh,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                   )),
                               AutoSizeText('Mobile number:564164645 ',
                                   style: getFontStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 9.fh,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                   )),
                               AutoSizeText('Role: uyhdfgyyudjbv',
                                   style: getFontStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 9.fh,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                   )),
                             ],
                           ),
@@ -118,7 +117,8 @@ class _CreateProfile3State extends State<CreateProfile3> {
                                     width: 15.fh,
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        color:
+                                            const Color.fromARGB(255, 0, 0, 0),
                                         width: 1,
                                       ),
                                       borderRadius: BorderRadius.circular(200),
@@ -128,7 +128,8 @@ class _CreateProfile3State extends State<CreateProfile3> {
                                       child: Icon(
                                         Icons.check,
                                         size: 10.fh,
-                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        color:
+                                            const Color.fromARGB(255, 0, 0, 0),
                                       ),
                                     ),
                                   ),
@@ -141,7 +142,7 @@ class _CreateProfile3State extends State<CreateProfile3> {
                                   style: getFontStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 1.fh,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                   )),
                               SizedBox(
                                 height: 5.fh,
@@ -158,7 +159,7 @@ class _CreateProfile3State extends State<CreateProfile3> {
                                 child: Icon(
                                   Icons.more_vert,
                                   size: 15.fh,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                               SizedBox(
@@ -170,7 +171,7 @@ class _CreateProfile3State extends State<CreateProfile3> {
                       ),
                     ),
                   ),
-                  Container(height: 400.fh, child: InviteMemberList()),
+                  SizedBox(height: 400.fh, child: const InviteMemberList()),
                   SizedBox(
                     height: 40.fh,
                   ),
@@ -195,7 +196,7 @@ class _CreateProfile3State extends State<CreateProfile3> {
                               style: getFontStyle(
                                 fontWeight: FontWeight.w700,
                                 fontSize: 15,
-                                color: Color(0xFF3252BB),
+                                color: const Color(0xFF3252BB),
                               ),
                             ),
                           ),
@@ -218,7 +219,7 @@ class InviteMember extends StatelessWidget {
   final String role;
 
   const InviteMember(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.email,
       required this.mobile,
@@ -232,7 +233,7 @@ class InviteMember extends StatelessWidget {
         height: 85.fh,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Color.fromARGB(255, 0, 0, 0),
+            color: const Color.fromARGB(255, 0, 0, 0),
             width: 1,
           ),
           borderRadius: BorderRadius.circular(10),
@@ -243,13 +244,13 @@ class InviteMember extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 22.fh,
-              backgroundColor: Color.fromARGB(255, 0, 0, 0),
+              backgroundColor: const Color.fromARGB(255, 0, 0, 0),
               child: CircleAvatar(
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   "assets/images/OptonScreenPng1.png",
                 ),
                 radius: 20.fh,
-                backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             Column(
@@ -260,25 +261,25 @@ class InviteMember extends StatelessWidget {
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 9.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 AutoSizeText('Mail: $email',
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 9.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 AutoSizeText('Mobile number: $mobile',
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 9.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 AutoSizeText('Role: $role',
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 9.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
               ],
             ),
@@ -292,7 +293,7 @@ class InviteMember extends StatelessWidget {
                       width: 15.fh,
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(200),
@@ -302,7 +303,7 @@ class InviteMember extends StatelessWidget {
                         child: Icon(
                           Icons.check,
                           size: 10.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                     ),
@@ -315,7 +316,7 @@ class InviteMember extends StatelessWidget {
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 1.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 SizedBox(
                   height: 5.fh,
@@ -332,7 +333,7 @@ class InviteMember extends StatelessWidget {
                   child: Icon(
                     Icons.more_vert,
                     size: 15.fh,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: const Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
                 SizedBox(
@@ -348,6 +349,8 @@ class InviteMember extends StatelessWidget {
 }
 
 class InviteMemberList extends StatefulWidget {
+  const InviteMemberList({super.key});
+
   @override
   _InviteMemberListState createState() => _InviteMemberListState();
 }
@@ -384,7 +387,7 @@ class _InviteMemberListState extends State<InviteMemberList> {
             },
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         GestureDetector(
@@ -410,7 +413,7 @@ class _InviteMemberListState extends State<InviteMemberList> {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xFF3252BB),
+                color: const Color(0xFF3252BB),
                 width: 2,
               ),
               borderRadius: BorderRadius.circular(10),
@@ -423,7 +426,7 @@ class _InviteMemberListState extends State<InviteMemberList> {
                 Icon(
                   Icons.add,
                   size: 20.fh,
-                  color: Color(0xFF3252BB),
+                  color: const Color(0xFF3252BB),
                 ),
                 SizedBox(
                   width: 4.fw,
@@ -432,7 +435,7 @@ class _InviteMemberListState extends State<InviteMemberList> {
                     style: getFontStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 12.fh,
-                      color: Color(0xFF3252BB),
+                      color: const Color(0xFF3252BB),
                     )),
               ],
             ),
@@ -471,34 +474,34 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      title: Text('Add a new member'),
+      title: const Text('Add a new member'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           TextField(
             controller: _nameController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Name',
               hintText: 'Enter the name of the member',
             ),
           ),
           TextField(
             controller: _emailController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               hintText: 'Enter the email of the member',
             ),
           ),
           TextField(
             controller: _mobileController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Mobile Number',
               hintText: 'Enter the Mobile number of the member',
             ),
           ),
           TextField(
             controller: _roleController,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Role',
               hintText: 'Enter the role of the member',
             ),
@@ -508,7 +511,7 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: Text('Cancel'),
+          child: const Text('Cancel'),
         ),
         ElevatedButton(
           onPressed: () {
@@ -518,7 +521,7 @@ class _AddMemberDialogState extends State<AddMemberDialog> {
             final role = _roleController.text;
             widget.onSave(name, email, mobile, role);
           },
-          child: Text('Save'),
+          child: const Text('Save'),
         ),
       ],
     );

@@ -1,9 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gethire/Screens/CreateProfile/Createprofile1.dart';
-
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/CreateProfile/create_profile1.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 import 'package:lottie/lottie.dart';
 
@@ -27,13 +26,14 @@ class _OptionScreenState extends State<OptionScreen>
 
     controller.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => CreateProfile1()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const CreateProfile1()));
         controller.reset();
       }
     });
   }
 
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -89,7 +89,7 @@ class _OptionScreenState extends State<OptionScreen>
                         child: Container(
                             height: 50.fh,
                             width: 300.fw,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(15)),
                               color: Color(0xFFFFFFFF),
@@ -118,7 +118,7 @@ class _OptionScreenState extends State<OptionScreen>
                       Container(
                           height: 50.fh,
                           width: 300.fw,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xFFFFFFFF),
                           ),
@@ -145,7 +145,7 @@ class _OptionScreenState extends State<OptionScreen>
                       Container(
                           height: 50.fh,
                           width: 300.fw,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xFFFFFFFF),
                           ),
@@ -179,7 +179,7 @@ class _OptionScreenState extends State<OptionScreen>
       context: context,
       builder: (context) => Dialog(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(200))),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

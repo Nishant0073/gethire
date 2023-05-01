@@ -1,12 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/LikedCandidates.dart/likeCandi.dart';
-import 'package:gethire/Screens/PostJob/PostjobMain.dart';
+import 'package:gethire/Screens/LikedCandidates.dart/like_candi.dart';
+import 'package:gethire/Screens/PostJob/post_job_main.dart';
 import 'package:gethire/Screens/Subscription/subscription.dart';
-import 'package:gethire/Screens/homeScreen/FilterScreen.dart';
-import 'package:gethire/Screens/homeScreen/SearchScreen.dart';
-import 'package:gethire/Screens/homeScreen/SideNavbar.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/Screens/homeScreen/filter_screen.dart';
+import 'package:gethire/Screens/homeScreen/search_screen.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _key = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _key = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container PendingJobPost() {
     return Container(
         height: 90.fh,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xFFE9E9E9),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Padding(
@@ -82,14 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Pending Job Post",
                         style: getFontStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15.fh,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "View more",
                         style: getFontStyle(
-                            color: Color(0xFF3252BB),
+                            color: const Color(0xFF3252BB),
                             fontSize: 8.fh,
                             fontWeight: FontWeight.w600),
                       ),
@@ -97,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                       height: 40.fh,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color(0xFFFFFFFF),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
@@ -108,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("Job Title",
                               style: getFontStyle(
-                                  color: Color(0xFF000000),
+                                  color: const Color(0xFF000000),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -116,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("23/12/2023",
                               style: getFontStyle(
-                                  color: Color(0xFFB1B1B1),
+                                  color: const Color(0xFFB1B1B1),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -127,17 +126,17 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 100.fw,
                             decoration: BoxDecoration(
                                 border: Border.all(
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                   width: 1,
                                 ),
                                 color: Colors.transparent,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10))),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(10))),
                             child: Center(
                               child: Text(
                                 "Status",
                                 style: getFontStyle(
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    color: const Color.fromARGB(255, 0, 0, 0),
                                     fontSize: 9.fh,
                                     fontWeight: FontWeight.w600),
                               ),
@@ -156,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Icon(
                                   Icons.more_vert,
                                   size: 15.fh,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                               SizedBox(
@@ -175,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container ActiveJobPost() {
     return Container(
         height: 100.fh,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xFFE9E9E9),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Padding(
@@ -189,14 +188,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Active Job ",
                         style: getFontStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15.fh,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "View more",
                         style: getFontStyle(
-                            color: Color(0xFF3252BB),
+                            color: const Color(0xFF3252BB),
                             fontSize: 8.fh,
                             fontWeight: FontWeight.w600),
                       ),
@@ -204,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                       height: 50.fh,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color(0xFFFFFFFF),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
@@ -215,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("Job Title",
                               style: getFontStyle(
-                                  color: Color(0xFF000000),
+                                  color: const Color(0xFF000000),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -223,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("23/12/2023",
                               style: getFontStyle(
-                                  color: Color(0xFFB1B1B1),
+                                  color: const Color(0xFFB1B1B1),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -232,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             height: 40.fh,
                             width: 100.fw,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.transparent,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10))),
@@ -249,8 +248,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -263,8 +262,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -277,8 +276,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -291,8 +290,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -314,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Icon(
                                   Icons.more_vert,
                                   size: 15.fh,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                               SizedBox(
@@ -333,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container CloseJobPost() {
     return Container(
         height: 100.fh,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xFFE9E9E9),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Padding(
@@ -347,14 +346,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Closed Job ",
                         style: getFontStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15.fh,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "View more",
                         style: getFontStyle(
-                            color: Color(0xFF3252BB),
+                            color: const Color(0xFF3252BB),
                             fontSize: 8.fh,
                             fontWeight: FontWeight.w600),
                       ),
@@ -362,7 +361,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                       height: 50.fh,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color(0xFFFFFFFF),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
@@ -373,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("Job Title",
                               style: getFontStyle(
-                                  color: Color(0xFF000000),
+                                  color: const Color(0xFF000000),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -381,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           AutoSizeText("23/12/2023",
                               style: getFontStyle(
-                                  color: Color(0xFFB1B1B1),
+                                  color: const Color(0xFFB1B1B1),
                                   fontSize: 9.fh,
                                   fontWeight: FontWeight.w600)),
                           SizedBox(
@@ -390,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             height: 40.fh,
                             width: 100.fw,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: Colors.transparent,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10))),
@@ -407,8 +406,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -421,8 +420,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -435,8 +434,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -449,8 +448,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 19.fh, width: 22.fw),
                                       AutoSizeText("07",
                                           style: getFontStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
+                                              color: const Color.fromARGB(
+                                                  255, 0, 0, 0),
                                               fontSize: 9.fh,
                                               fontWeight: FontWeight.w600)),
                                     ],
@@ -472,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Icon(
                                   Icons.more_vert,
                                   size: 15.fh,
-                                  color: Color.fromARGB(255, 0, 0, 0),
+                                  color: const Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                               SizedBox(
@@ -491,7 +490,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container DraftJobPost() {
     return Container(
         height: 100.fh,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xFFE9E9E9),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Padding(
@@ -505,14 +504,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Drafted Job",
                         style: getFontStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15.fh,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         "View more",
                         style: getFontStyle(
-                            color: Color(0xFF3252BB),
+                            color: const Color(0xFF3252BB),
                             fontSize: 8.fh,
                             fontWeight: FontWeight.w600),
                       ),
@@ -520,7 +519,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Container(
                       height: 50.fh,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Color(0xFFFFFFFF),
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       child: Row(
@@ -529,7 +528,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.symmetric(horizontal: 20.fw),
                             child: AutoSizeText("Job Title",
                                 style: getFontStyle(
-                                    color: Color(0xFF000000),
+                                    color: const Color(0xFF000000),
                                     fontSize: 9.fh,
                                     fontWeight: FontWeight.w600)),
                           ),
@@ -541,7 +540,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Container JobPosting() {
     return Container(
       height: 90.fh,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           color: Color(0xFFE9E9E9),
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Padding(
@@ -554,7 +553,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "Job Postings",
                   style: getFontStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontSize: 15.fh,
                       fontWeight: FontWeight.w600),
                 ),
@@ -568,11 +567,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40.fh,
                   decoration: BoxDecoration(
                       border: Border.all(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         width: 1,
                       ),
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10))),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -580,14 +580,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           "09",
                           style: getFontStyle(
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               fontSize: 9.fh,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
                           "Active Jobs",
                           style: getFontStyle(
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: const Color.fromARGB(255, 0, 0, 0),
                               fontSize: 9.fh,
                               fontWeight: FontWeight.w600),
                         ),
@@ -600,11 +600,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40.fh,
                   decoration: BoxDecoration(
                       border: Border.all(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         width: 1,
                       ),
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10))),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -613,14 +614,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           "09",
                           style: getFontStyle(
                               fontSize: 9.fh,
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
                           "Closed Jobs",
                           style: getFontStyle(
                               fontSize: 9.fh,
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                               fontWeight: FontWeight.w600),
                         ),
                       ],
@@ -632,11 +633,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40.fh,
                   decoration: BoxDecoration(
                       border: Border.all(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: const Color.fromARGB(255, 0, 0, 0),
                         width: 1,
                       ),
                       color: Colors.transparent,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(10))),
                   child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -644,14 +646,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           "09",
                           style: getFontStyle(
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                               fontSize: 9.fh,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
                           "Onhold Jobs",
                           style: getFontStyle(
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                               fontSize: 9.fh,
                               fontWeight: FontWeight.w600),
                         ),
@@ -670,12 +672,12 @@ class _HomeScreenState extends State<HomeScreen> {
   GestureDetector searchBar() {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SearchScreen()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const SearchScreen()));
       },
       child: Container(
         height: 50.fh,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: Color(0xFFE9E9E9),
             borderRadius: BorderRadius.all(Radius.circular(10))),
         child: Row(
@@ -683,7 +685,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               width: 15.fw,
             ),
-            Icon(Icons.search, color: Color(0xFF3252BB), size: 25.fh
+            Icon(Icons.search, color: const Color(0xFF3252BB), size: 25.fh
                 // color: Color.fromARGB(255, 0, 0, 0),
                 ),
             SizedBox(
@@ -692,18 +694,20 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               "Search for a Intern",
               style: getFontStyle(
-                  color: Color(0xFFB1A8A8),
+                  color: const Color(0xFFB1A8A8),
                   fontSize: 12.fh,
                   fontWeight: FontWeight.w500),
             ),
-            Spacer(),
+            const Spacer(),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FilterScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const FilterScreen()));
               },
               child: Icon(Icons.filter_alt_outlined,
-                  color: Color(0xFF3252BB), size: 20.fh
+                  color: const Color(0xFF3252BB), size: 20.fh
                   // color: Color.fromARGB(255, 0, 0, 0),
                   ),
             ),
@@ -724,8 +728,8 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             CircleAvatar(
               radius: 30.fh,
-              backgroundImage: AssetImage('assets/images/sample.png'),
-              backgroundColor: Color(0xFFC4C4C4),
+              backgroundImage: const AssetImage('assets/images/sample.png'),
+              backgroundColor: const Color(0xFFC4C4C4),
             ),
             SizedBox(
               width: 10.fw,
@@ -746,7 +750,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "Let’s Find Your Best Candidate ",
                   style: TextStyle(
-                      color: Color(0xFFB1A8A8),
+                      color: const Color(0xFFB1A8A8),
                       fontSize: 11.fh,
                       fontWeight: FontWeight.w500),
                 ),
@@ -768,15 +772,17 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PostJobMian()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PostJobMian()));
               },
               child: Container(
                 width: 125.fw,
                 height: 25.fh,
                 decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color(0xFF3252BB),
+                      color: const Color(0xFF3252BB),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(10),
@@ -785,7 +791,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     "Post Job",
                     style: getFontStyle(
-                        color: Color(0xFF3252BB),
+                        color: const Color(0xFF3252BB),
                         fontSize: 10.fh,
                         fontWeight: FontWeight.w600),
                   ),
@@ -807,14 +813,14 @@ class scaffoldKey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color(0xFF3252BB),
+      backgroundColor: const Color(0xFF3252BB),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           UserAccountsDrawerHeader(
             margin: EdgeInsets.symmetric(vertical: 20.fh, horizontal: 10.fw),
-            accountName: Text('Oflutter.com'),
-            accountEmail: Text('example@gmail.com'),
+            accountName: const Text('Oflutter.com'),
+            accountEmail: const Text('example@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
                 child: Image.network(
@@ -825,7 +831,7 @@ class scaffoldKey extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFF3252BB),
             ),
           ),
@@ -842,7 +848,7 @@ class scaffoldKey extends StatelessWidget {
             onTap: () => null,
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.person,
               color: Colors.white,
             ),
@@ -854,11 +860,13 @@ class scaffoldKey extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Subscription()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Subscription()));
             },
             child: ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.subscriptions,
                 color: Colors.white,
               ),
@@ -867,19 +875,23 @@ class scaffoldKey extends StatelessWidget {
                 style:
                     getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
               ),
-               onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Subscription()));
-            },
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Subscription()));
+              },
             ),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LikedCandidates()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const LikedCandidates()));
             },
             child: ListTile(
-              leading: Icon(
+              leading: const Icon(
                 Icons.favorite,
                 color: Colors.white,
               ),
@@ -891,7 +903,7 @@ class scaffoldKey extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.logout,
               color: Colors.white,
             ),
