@@ -74,9 +74,12 @@ class _SubscriptionState extends State<Subscription> {
                               ],
                             ),
                           ),
+                          SizedBox(
+                            height: 10.fh,
+                          ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 10.fw, vertical: 10.fh),
+                                horizontal: 10.fw, vertical: 5.fh),
                             child: Container(
                               height: 35.fh,
                               decoration: BoxDecoration(
@@ -115,7 +118,31 @@ class _SubscriptionState extends State<Subscription> {
                               ),
                             ),
                           ),
-                          subscriptioncard()
+                          subscriptioncard(
+                            name: "Stratup",
+                            duration: "30 Days",
+                            price: "Pay Rs.500",
+                          ),
+                          subscriptioncard(
+                            name: "Basic",
+                            duration: "60 Days",
+                            price: "Pay Rs.700",
+                          ),
+                          subscriptioncard(
+                            name: "Advance",
+                            duration: "90 Days",
+                            price: "Pay Rs.1000",
+                          ),
+                          subscriptioncard(
+                            name: "Premium",
+                            duration: "180 Days",
+                            price: "Pay Rs.1500",
+                          ),
+                          subscriptioncard(
+                            name: "Priemium+",
+                            duration: "365 Days",
+                            price: "Pay Rs.3000",
+                          ),
                         ],
                       ),
                     ),
@@ -143,7 +170,7 @@ class subscriptioncard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.fw, vertical: 2.fh),
+      padding: EdgeInsets.symmetric(horizontal: 10.fw, vertical: 5.fh),
       child: Container(
         height: 35.fh,
         decoration: BoxDecoration(
