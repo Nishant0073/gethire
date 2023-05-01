@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/text_field_receut.dart';
-import 'package:gethire/Screens/CreateProfile/Invite_team.dart';
+import 'package:gethire/Screens/CreateProfile/invite_team.dart';
 import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 

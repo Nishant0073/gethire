@@ -4,6 +4,7 @@ import 'package:gethire/Screens/LikedCandidates.dart/like_candi.dart';
 import 'package:gethire/Screens/PostJob/post_job_main.dart';
 import 'package:gethire/Screens/Subscription/subscription.dart';
 import 'package:gethire/Screens/homeScreen/filter_screen.dart';
+import 'package:gethire/Screens/homeScreen/profile_screen.dart';
 import 'package:gethire/Screens/homeScreen/search_screen.dart';
 import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
@@ -21,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: scaffoldKey(key: _key),
+        drawer: getDrawer(context),
+        key: _key,
         body: Stack(children: [
           Positioned.fill(
             child: Padding(
@@ -726,10 +728,20 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CircleAvatar(
-              radius: 30.fh,
-              backgroundImage: const AssetImage('assets/images/sample.png'),
-              backgroundColor: const Color(0xFFC4C4C4),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UserProfileScreen(),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                radius: 30.fh,
+                backgroundImage: const AssetImage('assets/images/sample.png'),
+                backgroundColor: const Color(0xFFC4C4C4),
+              ),
             ),
             SizedBox(
               width: 10.fw,
@@ -805,116 +817,106 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class scaffoldKey extends StatelessWidget {
-  const scaffoldKey({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: const Color(0xFF3252BB),
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          UserAccountsDrawerHeader(
-            margin: EdgeInsets.symmetric(vertical: 20.fh, horizontal: 10.fw),
-            accountName: const Text('Oflutter.com'),
-            accountEmail: const Text('example@gmail.com'),
-            currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.network(
-                  'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
-                  fit: BoxFit.cover,
-                  width: 90.fh,
-                  height: 90.fh,
-                ),
+Widget getDrawer(BuildContext context) {
+  print("DRAWER CALLED!");
+  return Drawer(
+    backgroundColor: const Color(0xFF3252BB),
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        UserAccountsDrawerHeader(
+          margin: EdgeInsets.symmetric(vertical: 20.fh, horizontal: 10.fw),
+          accountName: const Text('Oflutter.com'),
+          accountEmail: const Text('example@gmail.com'),
+          currentAccountPicture: CircleAvatar(
+            child: ClipOval(
+              child: Image.network(
+                'https://oflutter.com/wp-content/uploads/2021/02/girl-profile.png',
+                fit: BoxFit.cover,
+                width: 90.fh,
+                height: 90.fh,
               ),
             ),
-            decoration: const BoxDecoration(
-              color: Color(0xFF3252BB),
-            ),
           ),
-          ListTile(
-            leading: Icon(
-              Icons.settings,
-              color: Colors.white,
-              size: 25.fh,
-            ),
-            title: Text(
-              'Settings',
-              style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
-            ),
-            onTap: () => null,
+          decoration: const BoxDecoration(
+            color: Color(0xFF3252BB),
           ),
-          ListTile(
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.settings,
+            color: Colors.white,
+            size: 25.fh,
+          ),
+          title: Text(
+            'Settings',
+            style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
+          ),
+          onTap: () => null,
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.person,
+            color: Colors.white,
+          ),
+          title: Text(
+            'Admin Panel',
+            style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
+          ),
+          onTap: () => null,
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Subscription()));
+          },
+          child: ListTile(
             leading: const Icon(
-              Icons.person,
+              Icons.subscriptions,
               color: Colors.white,
             ),
             title: Text(
-              'Admin Panel',
+              'Subscription',
               style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
             ),
-            onTap: () => null,
-          ),
-          GestureDetector(
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const Subscription()));
             },
-            child: ListTile(
-              leading: const Icon(
-                Icons.subscriptions,
-                color: Colors.white,
-              ),
-              title: Text(
-                'Subscription',
-                style:
-                    getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Subscription()));
-              },
-            ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LikedCandidates()));
-            },
-            child: ListTile(
-              leading: const Icon(
-                Icons.favorite,
-                color: Colors.white,
-              ),
-              title: Text(
-                'Liked Candidates',
-                style:
-                    getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
-              ),
-            ),
-          ),
-          ListTile(
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const LikedCandidates()));
+          },
+          child: ListTile(
             leading: const Icon(
-              Icons.logout,
+              Icons.favorite,
               color: Colors.white,
             ),
             title: Text(
-              'Logout',
+              'Liked Candidates',
               style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
             ),
-            onTap: () => null,
           ),
-        ],
-      ),
-    );
-  }
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.logout,
+            color: Colors.white,
+          ),
+          title: Text(
+            'Logout',
+            style: getFontStyle(fontSize: 15.fh, fontWeight: FontWeight.w600),
+          ),
+          onTap: () => null,
+        ),
+      ],
+    ),
+  );
 }

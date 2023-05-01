@@ -67,93 +67,181 @@ class _NavBarPageState extends State<NavBarPage> {
         ])),
       ),
       bottomNavigationBar: Container(
-        height: 80.fh,
-        padding: EdgeInsets.symmetric(horizontal: 10.fw),
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 255, 255, 255),
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(30),
-            topLeft: Radius.circular(30),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              blurRadius: 5,
-              offset: const Offset(0, -3),
-            ),
-          ],
-        ),
-        child: Column(
+        height: 120,
+        color: Colors.transparent,
+        child: Stack(
           children: [
-            SizedBox(
-              height: 10.fh,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(30),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 80.fh,
+                padding: EdgeInsets.symmetric(horizontal: 10.fw),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(5),
+                    topLeft: Radius.circular(5),
                   ),
-                  border: Border.all(
-                    color: const Color.fromARGB(255, 0, 0, 0),
-                    width: 1,
-                  )),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      blurRadius: 5,
+                      offset: const Offset(0, -3),
+                    ),
+                  ],
                 ),
-                child: BottomNavigationBar(
-                    elevation: 0,
-                    type: BottomNavigationBarType.fixed,
-                    backgroundColor: const Color(0xFF3252BB),
-                    onTap: onTap,
-                    currentIndex: currentIndex,
-                    selectedItemColor: const Color.fromARGB(255, 255, 255, 255),
-                    unselectedItemColor:
-                        const Color.fromARGB(255, 255, 255, 255),
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
-                    items: [
-                      const BottomNavigationBarItem(
-                        label: "",
-                        icon: NavIcon(
-                          path: 'assets/icons/homeicon.svg',
-                        ),
-                        activeIcon: NavIcon(
-                          path: 'assets/icons/homeicon.svg',
-                          active: true,
-                        ),
+
+                // child: Column(
+                //   children: [
+                //     SizedBox(
+                //       height: 10.fh,
+                //     ),
+                //     Container(
+                //       decoration: BoxDecoration(
+                //           borderRadius: const BorderRadius.all(
+                //             Radius.circular(30),
+                //           ),
+                //           border: Border.all(
+                //             color: const Color.fromARGB(255, 0, 0, 0),
+                //             width: 1,
+                //           )),
+                //       child: ClipRRect(
+                //         borderRadius: const BorderRadius.all(
+                //           Radius.circular(30),
+                //         ),
+                //         child: BottomNavigationBar(
+                //             elevation: 0,
+                //             type: BottomNavigationBarType.fixed,
+                //             backgroundColor: const Color(0xFF3252BB),
+                //             onTap: onTap,
+                //             currentIndex: currentIndex,
+                //             selectedItemColor:
+                //                 const Color.fromARGB(255, 255, 255, 255),
+                //             unselectedItemColor:
+                //                 const Color.fromARGB(255, 255, 255, 255),
+                //             showSelectedLabels: false,
+                //             showUnselectedLabels: false,
+                //             items: [
+                //               const BottomNavigationBarItem(
+                //                 label: "",
+                //                 icon: NavIcon(
+                //                   path: 'assets/icons/homeicon.svg',
+                //                 ),
+                //                 activeIcon: NavIcon(
+                //                   path: 'assets/icons/homeicon.svg',
+                //                   active: true,
+                //                 ),
+                //               ),
+                //               const BottomNavigationBarItem(
+                //                 label: "",
+                //                 icon: NavIcon(
+                //                   path: 'assets/icons/message.svg',
+                //                 ),
+                //                 activeIcon: NavIcon(
+                //                   path: 'assets/icons/message.svg',
+                //                   active: true,
+                //                 ),
+                //               ),
+                //               const BottomNavigationBarItem(
+                //                 label: "",
+                //                 icon: NavIcon(
+                //                   path: 'assets/icons/noti.svg',
+                //                 ),
+                //                 activeIcon: NavIcon(
+                //                   path: 'assets/icons/noti.svg',
+                //                   active: true,
+                //                 ),
+                //               ),
+                //               const BottomNavigationBarItem(
+                //                 label: "",
+                //                 icon: NavIcon(
+                //                   path: 'assets/icons/profile.svg',
+                //                 ),
+                //                 activeIcon: NavIcon(
+                //                   path: 'assets/icons/profile.svg',
+                //                   active: true,
+                //                 ),
+                //               ),
+                //             ]),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.fh),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(30),
                       ),
-                      const BottomNavigationBarItem(
-                        label: "",
-                        icon: NavIcon(
-                          path: 'assets/icons/message.svg',
-                        ),
-                        activeIcon: NavIcon(
-                          path: 'assets/icons/message.svg',
-                          active: true,
-                        ),
-                      ),
-                      const BottomNavigationBarItem(
-                        label: "",
-                        icon: NavIcon(
-                          path: 'assets/icons/noti.svg',
-                        ),
-                        activeIcon: NavIcon(
-                          path: 'assets/icons/noti.svg',
-                          active: true,
-                        ),
-                      ),
-                      const BottomNavigationBarItem(
-                        label: "",
-                        icon: NavIcon(
-                          path: 'assets/icons/profile.svg',
-                        ),
-                        activeIcon: NavIcon(
-                          path: 'assets/icons/profile.svg',
-                          active: true,
-                        ),
-                      ),
-                    ]),
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        width: 1,
+                      )),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(30),
+                    ),
+                    child: BottomNavigationBar(
+                        elevation: 0,
+                        type: BottomNavigationBarType.fixed,
+                        backgroundColor: const Color(0xFF3252BB),
+                        onTap: onTap,
+                        currentIndex: currentIndex,
+                        selectedItemColor:
+                            const Color.fromARGB(255, 255, 255, 255),
+                        unselectedItemColor:
+                            const Color.fromARGB(255, 255, 255, 255),
+                        showSelectedLabels: false,
+                        showUnselectedLabels: false,
+                        items: [
+                          const BottomNavigationBarItem(
+                            label: "",
+                            icon: NavIcon(
+                              path: 'assets/icons/homeicon.svg',
+                            ),
+                            activeIcon: NavIcon(
+                              path: 'assets/icons/homeicon.svg',
+                              active: true,
+                            ),
+                          ),
+                          const BottomNavigationBarItem(
+                            label: "",
+                            icon: NavIcon(
+                              path: 'assets/icons/message.svg',
+                            ),
+                            activeIcon: NavIcon(
+                              path: 'assets/icons/message.svg',
+                              active: true,
+                            ),
+                          ),
+                          const BottomNavigationBarItem(
+                            label: "",
+                            icon: NavIcon(
+                              path: 'assets/icons/noti.svg',
+                            ),
+                            activeIcon: NavIcon(
+                              path: 'assets/icons/noti.svg',
+                              active: true,
+                            ),
+                          ),
+                          const BottomNavigationBarItem(
+                            label: "",
+                            icon: NavIcon(
+                              path: 'assets/icons/profile.svg',
+                            ),
+                            activeIcon: NavIcon(
+                              path: 'assets/icons/profile.svg',
+                              active: true,
+                            ),
+                          ),
+                        ]),
+                  ),
+                ),
               ),
             ),
           ],

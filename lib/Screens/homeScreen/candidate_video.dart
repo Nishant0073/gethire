@@ -73,24 +73,24 @@ class _CandidateVideoState extends State<CandidateVideo> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    const Iconss(
+                  children: const [
+                    Iconss(
                       image: "assets/icons/like.png",
                       text: "Like",
                     ),
-                    const Iconss(
+                    Iconss(
                       image: "assets/icons/view.png",
                       text: "View",
                     ),
-                    const Iconss(
+                    Iconss(
                       image: "assets/icons/chat.png",
                       text: "Chat",
                     ),
-                    const Iconss(
+                    Iconss(
                       image: "assets/icons/DOWNLOAD.png",
                       text: "CV",
                     ),
-                    const Iconss(
+                    Iconss(
                       image: "assets/icons/send.png",
                       text: "Send",
                     ),
