@@ -27,7 +27,9 @@ class NavIcon extends StatelessWidget {
               fit: BoxFit.contain,
               height: 20.fh,
               width: 20.fh,
-              color: active == false ? AppTheme.graywhite : AppTheme.iconColor,
+              color: active == false
+                  ? Color.fromARGB(255, 255, 255, 255)
+                  : Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           const Spacer(),
@@ -35,7 +37,8 @@ class NavIcon extends StatelessWidget {
               ? Container(
                   height: 2.fh,
                   width: 30.fw,
-                  decoration: const BoxDecoration(color: AppTheme.iconColor),
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 255, 255, 255)),
                 )
               : const SizedBox.shrink(),
         ]));

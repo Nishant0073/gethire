@@ -96,6 +96,7 @@ class _CreateProfile1State extends State<CreateProfile1> {
                                   color: Color(0xFFFFFFFF),
                                 ),
                                 child: TextFormField(
+                                  
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.only(left: 15),
                                     border: InputBorder.none,
