@@ -1,11 +1,15 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/text_field_receut.dart';
 import 'package:gethire/Screens/CreateProfile/invite_team.dart';
 import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CreateProfile2 extends StatefulWidget {
   const CreateProfile2({super.key});
@@ -16,6 +20,29 @@ class CreateProfile2 extends StatefulWidget {
 
 class _CreateProfile2State extends State<CreateProfile2> {
   final TextEditingController _emailidController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+  TextEditingController tcCompayName = TextEditingController();
+  TextEditingController tcEmailId = TextEditingController();
+  TextEditingController tcContactNumber = TextEditingController();
+  TextEditingController tcAddress = TextEditingController();
+  TextEditingController tcSocialMediaLink = TextEditingController();
+  TextEditingController tcWebsite = TextEditingController();
+  TextEditingController tcCINNumber = TextEditingController();
+  TextEditingController tcCGSTNumber = TextEditingController();
+  TextEditingController tcAbout = TextEditingController();
+
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch (e) {
+      log("Failed to pick image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +95,22 @@ class _CreateProfile2State extends State<CreateProfile2> {
                           children: [
                             CircleAvatar(
                               radius: 30.fh,
-                              backgroundColor: const Color(0xFFC4C4C4),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                pickImage();
+                                setState(() {});
+                              },
+                              child: CircleAvatar(
+                                radius: 30.fh,
+                                // backgroundImage: Image.file(file),
+                                backgroundImage: image == null
+                                    ? const AssetImage(
+                                        'assets/images/sample.png')
+                                    : FileImage(image ?? File(""))
+                                        as ImageProvider,
+                                backgroundColor: const Color(0xFFC4C4C4),
+                              ),
                             ),
                             Positioned(
                               bottom: 0,
@@ -90,18 +132,20 @@ class _CreateProfile2State extends State<CreateProfile2> {
                                     textType: TextType.smallText,
                                     fontWeight: FontWeight.w600)),
                             Container(
-                                width: 235.fw,
-                                height: 40.fh,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: const Color(0xFFFFFFFF),
+                              width: 235.fw,
+                              height: 40.fh,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color(0xFFFFFFFF),
+                              ),
+                              child: TextFormField(
+                                controller: tcCompayName,
+                                decoration: const InputDecoration(
+                                  contentPadding: EdgeInsets.only(left: 15),
+                                  border: InputBorder.none,
                                 ),
-                                child: TextFormField(
-                                  decoration: const InputDecoration(
-                                    contentPadding: EdgeInsets.only(left: 15),
-                                    border: InputBorder.none,
-                                  ),
-                                ))
+                              ),
+                            )
                           ],
                         )
                       ],
@@ -120,51 +164,53 @@ class _CreateProfile2State extends State<CreateProfile2> {
                       child: Column(
                         children: [
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcEmailId,
                             name: " Email ID",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcContactNumber,
                             name: " Contact Number",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcAddress,
                             name: " Complete Address",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcSocialMediaLink,
                             name: " Add Social Media Links",
                             hint: "Linkedin",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcWebsite,
                             name: " Website",
                             hint: "",
                           ),
                           const NormalDropDown(
                             // controller: _emailidController,
+                            items: ["Select option", "Coorporate", "Private"],
                             name: "Type of Company",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcCINNumber,
                             name: ' CIN Number',
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcCGSTNumber,
                             name: ' GST Number',
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcAbout,
                             name: ' About',
                             hint: "",
                           ),
                           const NormalDropDown(
+                            items: ["Select option", "1", "2", "3", "5"],
                             name: 'Number of employees',
                             hint: "",
                           ),

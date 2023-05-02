@@ -56,14 +56,16 @@ class TextFieldRrecrut extends StatelessWidget {
 class NormalDropDown extends StatefulWidget {
   final String name;
   final String hint;
-  const NormalDropDown({super.key, required this.name, required this.hint});
+  final List<String>? items;
+  const NormalDropDown(
+      {super.key, required this.name, required this.hint, this.items});
 
   @override
   _NormalDropDownState createState() => _NormalDropDownState();
 }
 
 class _NormalDropDownState extends State<NormalDropDown> {
-  String dropdownValue = '1 year';
+  String dropdownValue = 'Select option';
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +102,8 @@ class _NormalDropDownState extends State<NormalDropDown> {
                     dropdownValue = newValue!;
                   });
                 },
-                items: <String>['1 year', '2 year', '3 year', '4 year']
+                items: (widget.items ??
+                        <String>['1 year', '2 year', '3 year', '4 year'])
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -109,9 +112,6 @@ class _NormalDropDownState extends State<NormalDropDown> {
                       child: Row(
                         children: [
                           Text(value),
-                          SizedBox(
-                            width: 170.fw,
-                          ),
                         ],
                       ),
                     ),

@@ -1,8 +1,13 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gethire/Screens/CreateProfile/create_profilr2.dart';
 import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'CreateprofileWidget/text_field_receut.dart';
 
@@ -14,7 +19,27 @@ class CreateProfile1 extends StatefulWidget {
 }
 
 class _CreateProfile1State extends State<CreateProfile1> {
-  final TextEditingController _emailidController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
+  TextEditingController tcRecruiterName = TextEditingController();
+  TextEditingController tcEmailId = TextEditingController();
+  TextEditingController tcContactNumber = TextEditingController();
+  TextEditingController tcdob = TextEditingController();
+  TextEditingController tcSocialMediaLink = TextEditingController();
+  TextEditingController tcInto = TextEditingController();
+
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch (e) {
+      log("Failed to pick image: $e");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -68,6 +93,22 @@ class _CreateProfile1State extends State<CreateProfile1> {
                               radius: 30.fh,
                               backgroundColor: const Color(0xFFC4C4C4),
                             ),
+                            InkWell(
+                              onTap: () {
+                                pickImage();
+                                setState(() {});
+                              },
+                              child: CircleAvatar(
+                                radius: 30.fh,
+                                // backgroundImage: Image.file(file),
+                                backgroundImage: image == null
+                                    ? const AssetImage(
+                                        'assets/images/sample.png')
+                                    : FileImage(image ?? File(""))
+                                        as ImageProvider,
+                                backgroundColor: const Color(0xFFC4C4C4),
+                              ),
+                            ),
                             Positioned(
                               bottom: 0,
                               left: 40.fw,
@@ -118,35 +159,41 @@ class _CreateProfile1State extends State<CreateProfile1> {
                       child: Column(
                         children: [
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcEmailId,
                             name: " Email ID",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcContactNumber,
                             name: " Mobile Number",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcdob,
                             name: " Date of Birth",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcSocialMediaLink,
                             name: " Add Social Media Links",
                             hint: "Linkedin",
                           ),
                           const NormalDropDown(
+                            items: ["Select option", "1", "2", "3"],
                             name: 'Total Work Experience',
                             hint: "",
                           ),
                           const NormalDropDown(
+                            items: [
+                              "Select option",
+                              "Front-End Developer",
+                              "Backend Developer"
+                            ],
                             name: 'Roles You Hire For',
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcInto,
                             name: "Short Introduction About Yourself",
                             hint: "",
                           ),
