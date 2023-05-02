@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class TextFieldRrecrut extends StatelessWidget {
@@ -34,12 +34,12 @@ class TextFieldRrecrut extends StatelessWidget {
                 height: 40.fh,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFFFFFFF),
+                  color: const Color(0xFFFFFFFF),
                 ),
                 child: TextFormField(
                   controller: controller,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 15),
+                    contentPadding: const EdgeInsets.only(left: 15),
                     border: InputBorder.none,
                     hintText: hint,
                     hintStyle: getFontStyle(
@@ -56,14 +56,16 @@ class TextFieldRrecrut extends StatelessWidget {
 class NormalDropDown extends StatefulWidget {
   final String name;
   final String hint;
-  const NormalDropDown({super.key, required this.name, required this.hint});
+  final List<String>? items;
+  const NormalDropDown(
+      {super.key, required this.name, required this.hint, this.items});
 
   @override
   _NormalDropDownState createState() => _NormalDropDownState();
 }
 
 class _NormalDropDownState extends State<NormalDropDown> {
-  String dropdownValue = '1 year';
+  String dropdownValue = 'Select option';
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +88,10 @@ class _NormalDropDownState extends State<NormalDropDown> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFFFFFFF),
+                color: const Color(0xFFFFFFFF),
               ),
               child: DropdownButton<String>(
-                underline: SizedBox(),
+                underline: const SizedBox(),
                 style: TextStyle(
                     color: AppTheme.blackFontColor,
                     fontSize: 15.fw,
@@ -100,7 +102,8 @@ class _NormalDropDownState extends State<NormalDropDown> {
                     dropdownValue = newValue!;
                   });
                 },
-                items: <String>['1 year', '2 year', '3 year', '4 year']
+                items: (widget.items ??
+                        <String>['1 year', '2 year', '3 year', '4 year'])
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -109,9 +112,6 @@ class _NormalDropDownState extends State<NormalDropDown> {
                       child: Row(
                         children: [
                           Text(value),
-                          SizedBox(
-                            width: 170.fw,
-                          ),
                         ],
                       ),
                     ),
@@ -162,13 +162,13 @@ class OptionalTextFieldRrecrut extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               border: Border.all(
-                  color: Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
-              color: Color.fromARGB(255, 255, 255, 255),
+                  color: const Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
+              color: const Color.fromARGB(255, 255, 255, 255),
               borderRadius: BorderRadius.circular(10.fh),
               boxShadow: [
                 BoxShadow(
-                  color: Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
-                  offset: Offset(0, 4),
+                  color: const Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
+                  offset: const Offset(0, 4),
                   blurRadius: 6,
                 ),
               ],
@@ -231,13 +231,14 @@ class RowTextFieldRrecrut extends StatelessWidget {
                 width: 130.fw,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
-                  color: Color.fromARGB(255, 255, 255, 255),
+                      color:
+                          const Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(10.fh),
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
-                      offset: Offset(0, 4),
+                      color: const Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
+                      offset: const Offset(0, 4),
                       blurRadius: 6,
                     ),
                   ],
@@ -275,13 +276,14 @@ class RowTextFieldRrecrut extends StatelessWidget {
                 width: 130.fw,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
-                  color: Color.fromARGB(255, 255, 255, 255),
+                      color:
+                          const Color.fromARGB(102, 0, 0, 0).withOpacity(0.1)),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(10.fh),
                   boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
-                      offset: Offset(0, 4),
+                      color: const Color.fromARGB(90, 0, 0, 0).withOpacity(0.1),
+                      offset: const Offset(0, 4),
                       blurRadius: 6,
                     ),
                   ],

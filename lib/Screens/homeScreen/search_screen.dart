@@ -1,9 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/homeScreen/CandidateVideo.dart';
-import 'package:gethire/Screens/homeScreen/ProfileDetail.dart';
-import 'package:gethire/sizeConfig.dart';
-import 'package:gethire/widgets/Candidatescard.dart';
+import 'package:gethire/size_config.dart';
+import 'package:gethire/widgets/candidates_card.dart';
 
 import '../../theme.dart';
 
@@ -18,7 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFFBFBFB),
+        backgroundColor: const Color(0xFFFBFBFB),
         body: Stack(children: [
           Positioned.fill(
             child: Padding(
@@ -39,14 +37,14 @@ class _SearchScreenState extends State<SearchScreen> {
                           child: Icon(
                             Icons.arrow_back_ios,
                             size: 25.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ),
                         ),
                         AutoSizeText("Candidate Profile",
                             style: getFontStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 20.fh,
-                              color: Color.fromARGB(255, 0, 0, 0),
+                              color: const Color.fromARGB(255, 0, 0, 0),
                             ))
                       ],
                     ),
@@ -70,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             CandidatesCard(),
                             CandidatesCard(),
                           ],
@@ -80,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             CandidatesCard(),
                             CandidatesCard(),
                           ],
@@ -100,28 +98,28 @@ class _SearchScreenState extends State<SearchScreen> {
     return Container(
       height: 50.fh,
       decoration: BoxDecoration(
-          border: Border.all(color: Color(0xFFB1B1B1), width: 1),
+          border: Border.all(color: const Color(0xFFB1B1B1), width: 1),
           color: Colors.transparent,
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
       child: Row(
         children: [
           SizedBox(
             width: 15.fw,
           ),
-          Icon(Icons.search, color: Color(0xFF3252BB), size: 25.fh
+          Icon(Icons.search, color: const Color(0xFF3252BB), size: 25.fh
               // color: Color.fromARGB(255, 0, 0, 0),
               ),
           SizedBox(
             width: 10.fw,
           ),
-          Container(
+          SizedBox(
             width: 280.fw,
             child: TextFormField(
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: "Top candidates",
                 hintStyle: getFontStyle(
-                  color: Color(0xFFB1A8A8),
+                  color: const Color(0xFFB1A8A8),
                   fontSize: 15.fh,
                   fontWeight: FontWeight.w400,
                 ),
@@ -133,4 +131,3 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 }
-

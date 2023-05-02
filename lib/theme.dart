@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 
 enum DeviceType { Phone, Tablet }
 
 class AppTheme {
   static Color? shimmerColor = Colors.grey[100];
-  static Color shimmerBaseColor = Color(0xff3C3C43).withOpacity(0.05);
-  static Color shimmerHighlightColor = Color(0xff3C3C43).withOpacity(0.1);
+  static Color shimmerBaseColor = const Color(0xff3C3C43).withOpacity(0.05);
+  static Color shimmerHighlightColor = const Color(0xff3C3C43).withOpacity(0.1);
 
   static const Color primaryColor = Color(0xff3252BB);
   static const Color blackFontColor = Color(0xff1D1D1D);
@@ -33,7 +33,7 @@ class AppTheme {
             color: Color(0xff000000),
           ),
           systemOverlayStyle: SystemUiOverlayStyle.dark),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
           bodyText1: TextStyle(
             fontSize: 17.0,
             color: Color(0xff000000),

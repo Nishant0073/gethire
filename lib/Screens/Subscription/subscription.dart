@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class Subscription extends StatefulWidget {
@@ -35,14 +35,14 @@ class _SubscriptionState extends State<Subscription> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText(" Subscription",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           )),
                     ],
                   ),
@@ -53,7 +53,7 @@ class _SubscriptionState extends State<Subscription> {
                     height: 350.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Center(
                       child: Column(
@@ -69,19 +69,22 @@ class _SubscriptionState extends State<Subscription> {
                                     style: getFontStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 14.fh,
-                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      color: const Color.fromARGB(255, 0, 0, 0),
                                     )),
                               ],
                             ),
                           ),
+                          SizedBox(
+                            height: 10.fh,
+                          ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 10.fw, vertical: 10.fh),
+                                horizontal: 10.fw, vertical: 5.fh),
                             child: Container(
                               height: 35.fh,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color.fromARGB(255, 255, 255, 255),
+                                color: const Color.fromARGB(255, 255, 255, 255),
                               ),
                               child: Center(
                                 child: Padding(
@@ -95,19 +98,22 @@ class _SubscriptionState extends State<Subscription> {
                                           style: getFontStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 10.fh,
-                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            color: const Color.fromARGB(
+                                                255, 0, 0, 0),
                                           )),
                                       AutoSizeText("Duration",
                                           style: getFontStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 10.fh,
-                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            color: const Color.fromARGB(
+                                                255, 0, 0, 0),
                                           )),
                                       AutoSizeText("Pay Now",
                                           style: getFontStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 10.fh,
-                                            color: Color.fromARGB(255, 0, 0, 0),
+                                            color: const Color.fromARGB(
+                                                255, 0, 0, 0),
                                           )),
                                     ],
                                   ),
@@ -115,7 +121,31 @@ class _SubscriptionState extends State<Subscription> {
                               ),
                             ),
                           ),
-                          subscriptioncard()
+                          const subscriptioncard(
+                            name: "Stratup",
+                            duration: "30 Days",
+                            price: "Pay Rs.500",
+                          ),
+                          const subscriptioncard(
+                            name: "Basic",
+                            duration: "60 Days",
+                            price: "Pay Rs.700",
+                          ),
+                          const subscriptioncard(
+                            name: "Advance",
+                            duration: "90 Days",
+                            price: "Pay Rs.1000",
+                          ),
+                          const subscriptioncard(
+                            name: "Premium",
+                            duration: "180 Days",
+                            price: "Pay Rs.1500",
+                          ),
+                          const subscriptioncard(
+                            name: "Priemium+",
+                            duration: "365 Days",
+                            price: "Pay Rs.3000",
+                          ),
                         ],
                       ),
                     ),
@@ -143,12 +173,12 @@ class subscriptioncard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.fw, vertical: 2.fh),
+      padding: EdgeInsets.symmetric(horizontal: 10.fw, vertical: 5.fh),
       child: Container(
         height: 35.fh,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
         ),
         child: Center(
           child: Padding(
@@ -160,13 +190,13 @@ class subscriptioncard extends StatelessWidget {
                     style: getFontStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 10.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 AutoSizeText(duration,
                     style: getFontStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 10.fh,
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     )),
                 Container(
                   height: 25.fh,

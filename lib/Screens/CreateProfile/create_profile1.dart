@@ -1,21 +1,44 @@
-import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/Screens/CreateProfile/CreateprofileWidget/textFieldReceut.dart';
-import 'package:gethire/Screens/CreateProfile/InviteTeam.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:flutter/services.dart';
+import 'package:gethire/Screens/CreateProfile/create_profilr2.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
+import 'package:image_picker/image_picker.dart';
 
-class CreateProfile2 extends StatefulWidget {
-  const CreateProfile2({super.key});
+import 'CreateprofileWidget/text_field_receut.dart';
+
+class CreateProfile1 extends StatefulWidget {
+  const CreateProfile1({super.key});
 
   @override
-  State<CreateProfile2> createState() => _CreateProfile2State();
+  State<CreateProfile1> createState() => _CreateProfile1State();
 }
 
-class _CreateProfile2State extends State<CreateProfile2> {
-  TextEditingController _emailidController = TextEditingController();
+class _CreateProfile1State extends State<CreateProfile1> {
+  final ImagePicker _picker = ImagePicker();
+  TextEditingController tcRecruiterName = TextEditingController();
+  TextEditingController tcEmailId = TextEditingController();
+  TextEditingController tcContactNumber = TextEditingController();
+  TextEditingController tcdob = TextEditingController();
+  TextEditingController tcSocialMediaLink = TextEditingController();
+  TextEditingController tcInto = TextEditingController();
+
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      setState(() => this.image = imageTemp);
+    } on PlatformException catch (e) {
+      log("Failed to pick image: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +64,14 @@ class _CreateProfile2State extends State<CreateProfile2> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
-                      AutoSizeText("Company Profile",
+                      AutoSizeText("Recruiter Profile",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           ))
                     ],
                   ),
@@ -59,7 +82,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                     height: 85.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,7 +91,23 @@ class _CreateProfile2State extends State<CreateProfile2> {
                           children: [
                             CircleAvatar(
                               radius: 30.fh,
-                              backgroundColor: Color(0xFFC4C4C4),
+                              backgroundColor: const Color(0xFFC4C4C4),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                pickImage();
+                                setState(() {});
+                              },
+                              child: CircleAvatar(
+                                radius: 30.fh,
+                                // backgroundImage: Image.file(file),
+                                backgroundImage: image == null
+                                    ? const AssetImage(
+                                        'assets/images/sample.png')
+                                    : FileImage(image ?? File(""))
+                                        as ImageProvider,
+                                backgroundColor: const Color(0xFFC4C4C4),
+                              ),
                             ),
                             Positioned(
                               bottom: 0,
@@ -84,7 +123,7 @@ class _CreateProfile2State extends State<CreateProfile2> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Company Name",
+                            Text("Recruiter Name",
                                 style: getFontStyle(
                                     color: AppTheme.blackFontColor,
                                     textType: TextType.smallText,
@@ -94,10 +133,10 @@ class _CreateProfile2State extends State<CreateProfile2> {
                                 height: 40.fh,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFFFFFFFF),
+                                  color: const Color(0xFFFFFFFF),
                                 ),
                                 child: TextFormField(
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     contentPadding: EdgeInsets.only(left: 15),
                                     border: InputBorder.none,
                                   ),
@@ -111,61 +150,51 @@ class _CreateProfile2State extends State<CreateProfile2> {
                     height: 25.fh,
                   ),
                   Container(
-                    height: 900.fh,
+                    height: 630.fh,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xFFE9E9E9),
+                      color: const Color(0xFFE9E9E9),
                     ),
                     child: Center(
                       child: Column(
                         children: [
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcEmailId,
                             name: " Email ID",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: " Contact Number",
+                            controller: tcContactNumber,
+                            name: " Mobile Number",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: " Complete Address",
+                            controller: tcdob,
+                            name: " Date of Birth",
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
+                            controller: tcSocialMediaLink,
                             name: " Add Social Media Links",
                             hint: "Linkedin",
                           ),
-                          TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: " Website",
+                          const NormalDropDown(
+                            items: ["Select option", "1", "2", "3"],
+                            name: 'Total Work Experience',
                             hint: "",
                           ),
-                          NormalDropDown(
-                            // controller: _emailidController,
-                            name: "Type of Company",
-                            hint: "",
-                          ),
-                          TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: ' CIN Number',
-                            hint: "",
-                          ),
-                          TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: ' GST Number',
+                          const NormalDropDown(
+                            items: [
+                              "Select option",
+                              "Front-End Developer",
+                              "Backend Developer"
+                            ],
+                            name: 'Roles You Hire For',
                             hint: "",
                           ),
                           TextFieldRrecrut(
-                            controller: _emailidController,
-                            name: ' About',
-                            hint: "",
-                          ),
-                          NormalDropDown(
-                            name: 'Number of employees',
+                            controller: tcInto,
+                            name: "Short Introduction About Yourself",
                             hint: "",
                           ),
                         ],
@@ -182,23 +211,18 @@ class _CreateProfile2State extends State<CreateProfile2> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Timer.periodic(Duration(seconds: 1), (timer) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CreateProfile3()));
-                              timer.cancel();
-                            });
-                            showDailogbox(context);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CreateProfile2()));
                           },
-                          child: Container(
-                            child: AutoSizeText("Next",
-                                style: getFontStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14.fh,
-                                  color: Color(0xFF3252BB),
-                                )),
-                          ),
+                          child: AutoSizeText("Next",
+                              style: getFontStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14.fh,
+                                color: const Color(0xFF3252BB),
+                              )),
                         ),
                       ],
                     ),
@@ -212,46 +236,4 @@ class _CreateProfile2State extends State<CreateProfile2> {
       ])),
     );
   }
-
-  void showDailogbox(context) => showDialog(
-      context: context,
-      builder: (context) => Dialog(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Container(
-              height: 204.fh,
-              width: 348.fw,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(200))),
-              child: Container(
-                height: 204.fh,
-                width: 348.fw,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(200))),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircleAvatar(
-                      radius: 30.fh,
-                      backgroundColor: Color(0xFF3252BB),
-                      child: Icon(
-                        Icons.check,
-                        size: 30.fh,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20.fh,
-                    ),
-                    AutoSizeText("Profile Completed",
-                        style: getFontStyle(
-                            color: AppTheme.blackFontColor,
-                            fontSize: 20.fh,
-                            fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
-            ),
-          ));
 }

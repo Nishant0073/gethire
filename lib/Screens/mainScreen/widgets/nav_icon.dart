@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 
 import '../../../constants.dart';
-import '../../../theme.dart';
 
 class NavIcon extends StatelessWidget {
   final String path;
@@ -27,9 +26,10 @@ class NavIcon extends StatelessWidget {
               fit: BoxFit.contain,
               height: 20.fh,
               width: 20.fh,
+              // ignore: deprecated_member_use
               color: active == false
-                  ? Color.fromARGB(255, 255, 255, 255)
-                  : Color.fromARGB(255, 255, 255, 255),
+                  ? const Color.fromARGB(255, 255, 255, 255)
+                  : const Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           const Spacer(),

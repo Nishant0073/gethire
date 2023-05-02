@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
-import 'package:gethire/widgets/Candidatescard.dart';
+import 'package:gethire/widgets/candidates_card.dart';
 
 class LikedCandidates extends StatefulWidget {
   const LikedCandidates({super.key});
@@ -36,21 +36,21 @@ class _LikedCandidatesState extends State<LikedCandidates> {
                         child: Icon(
                           Icons.arrow_back_ios,
                           size: 25.fh,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       AutoSizeText("  Liked Candidates",
                           style: getFontStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20.fh,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: const Color.fromARGB(255, 0, 0, 0),
                           )),
                     ],
                   ),
                   SizedBox(
                     height: 25.fh,
                   ),
-                  Container(
+                  SizedBox(
                     height: 650.fh,
                     child: ListView.builder(
                         shrinkWrap: true,
@@ -59,7 +59,7 @@ class _LikedCandidatesState extends State<LikedCandidates> {
                         itemBuilder: (context, index) {
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
+                            children: const [
                               CandidatesCard(),
                               CandidatesCard(),
                             ],

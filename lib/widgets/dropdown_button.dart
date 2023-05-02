@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class DeopdownButton extends StatefulWidget {
@@ -34,10 +34,10 @@ class _DeopdownButtonState extends State<DeopdownButton> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xFFFFFFFF),
+                color: const Color(0xFFFFFFFF),
               ),
               child: DropdownButton<String>(
-                underline: SizedBox(),
+                underline: const SizedBox(),
                 style: TextStyle(
                     color: AppTheme.blackFontColor,
                     fontSize: 15.fw,

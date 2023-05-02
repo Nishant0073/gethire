@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gethire/sizeConfig.dart';
+import 'package:gethire/size_config.dart';
 import 'package:gethire/theme.dart';
 
 class TextFieldcustom extends StatelessWidget {
@@ -34,12 +34,12 @@ class TextFieldcustom extends StatelessWidget {
                 height: 40.fh,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color(0xFFFFFFFF),
+                  color: const Color(0xFFFFFFFF),
                 ),
                 child: TextFormField(
                   controller: controller,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(left: 15),
+                    contentPadding: const EdgeInsets.only(left: 15),
                     border: InputBorder.none,
                     hintText: hint,
                     hintStyle: getFontStyle(
